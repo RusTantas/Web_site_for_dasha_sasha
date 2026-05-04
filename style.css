@@ -957,3 +957,360 @@ textarea.form-input {
   border-bottom-color: var(--lavender-text);
   background: rgba(123, 95, 168, 0.05);
 }
+
+/* ===== НОВЫЕ СТИЛИ ДЛЯ ОБНОВЛЕННОГО САЙТА ===== */
+
+/* Блок 2 - Текст приглашения */
+.invitation-text {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.invitation-text__content {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-primary);
+  font-style: italic;
+  padding: 20px 0;
+}
+
+/* Блок 3 - Локация (обновленная) */
+.venue-card__link {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--lavender-text);
+  background: var(--lavender-soft);
+  border: 1px solid var(--lavender-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.venue-card__link:hover {
+  background: var(--lavender-border);
+  color: var(--white);
+}
+
+/* Блок 4 - Трансфер */
+.transfer-text {
+  text-align: center;
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.transfer-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.transfer-form__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--text-primary);
+  padding: 8px 12px;
+  background: var(--cream);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.checkbox-label:hover {
+  background: var(--lavender-soft);
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+  cursor: pointer;
+  accent-color: var(--lavender-text);
+}
+
+.checkbox-label__text {
+  flex: 1;
+}
+
+/* Блок 5 - Тайминг дня */
+.timeline-card {
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--lavender-border);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+}
+
+.timeline-item__time {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--lavender-text);
+}
+
+.timeline-item__event {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.timer-until {
+  text-align: center;
+  margin-top: 32px;
+  padding: 20px;
+  background: var(--lavender-soft);
+  border-radius: var(--radius);
+}
+
+.timer-until__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.timer-until__display {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--lavender-text);
+  letter-spacing: 2px;
+}
+
+/* Блок 6 - Дресс-код */
+.dress-code {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--lavender-soft) 100%);
+  border-radius: var(--radius);
+}
+
+.dress-code__text {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+/* Блок 7 - Цветочный фонд */
+.flower-fund {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px;
+  background: var(--white);
+  border-left: 4px solid var(--lavender-text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.flower-fund__text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Блок 8 - Обновленная форма RSVP */
+.rsvp-deadline {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--lavender-text);
+  margin-bottom: 8px;
+}
+
+.rsvp-deadline__date {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 16px;
+  background: var(--cream);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.radio-label:hover {
+  background: var(--lavender-soft);
+}
+
+.radio-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: var(--lavender-text);
+}
+
+.radio-label__text {
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.drink-options--checkbox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.drink-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.drink-option input[type="checkbox"] {
+  position: static;
+  opacity: 1;
+  pointer-events: auto;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  accent-color: var(--lavender-text);
+}
+
+.drink-option .drink-option__label {
+  display: inline-block;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.drink-option:hover .drink-option__label {
+  color: var(--lavender-text);
+}
+
+.drink-option input[type="checkbox"]:checked + .drink-option__label {
+  background: transparent;
+  border: none;
+  color: var(--lavender-text);
+  font-weight: 500;
+}
+
+.waiting-message {
+  text-align: center;
+  margin-top: 48px;
+  padding: 24px;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--lavender-text);
+}
+
+/* Обновленная таблица админ-панели */
+.guest-table__drinks {
+  max-width: 200px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.guest-table__attendance {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 20px;
+}
+
+.guest-table__attendance--yes {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.guest-table__attendance--no {
+  background: #FFEBEE;
+  color: #C62828;
+}
+
+/* Адаптив для новых блоков */
+@media (max-width: 768px) {
+  .invitation-text__content {
+    font-size: 18px;
+  }
+  
+  .timeline-item__time {
+    font-size: 16px;
+  }
+  
+  .timeline-item__event {
+    font-size: 14px;
+  }
+  
+  .timer-until__display {
+    font-size: 22px;
+  }
+  
+  .radio-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .drink-options--checkbox {
+    grid-template-columns: 1fr;
+  }
+  
+  .waiting-message {
+    font-size: 18px;
+  }
+  
+  .dress-code__text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-card {
+    padding: 20px;
+  }
+  
+  .timer-until__display {
+    font-size: 18px;
+  }
+  
+  .flower-fund {
+    padding: 16px;
+  }
+}

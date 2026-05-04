@@ -19,8 +19,9 @@
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
   }
 
+  // Таймер для основной страницы (до 21 июня 2026 16:00)
   function initCountdown() {
-    const target = new Date('2026-06-21T15:00:00').getTime();
+    const target = new Date('2026-06-21T16:00:00').getTime();
     const daysEl = document.getElementById('countdown-days');
     const hoursEl = document.getElementById('countdown-hours');
     const minsEl = document.getElementById('countdown-mins');
@@ -30,26 +31,61 @@
       const now = Date.now();
       const diff = target - now;
       if (diff <= 0) {
-        daysEl.textContent = '0';
-        hoursEl.textContent = '0';
-        minsEl.textContent = '0';
-        secsEl.textContent = '0';
+        if (daysEl) daysEl.textContent = '0';
+        if (hoursEl) hoursEl.textContent = '0';
+        if (minsEl) minsEl.textContent = '0';
+        if (secsEl) secsEl.textContent = '0';
         return;
       }
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const mins = Math.floor((diff / (1000 * 60)) % 60);
       const secs = Math.floor((diff / 1000) % 60);
-      daysEl.textContent = days;
-      hoursEl.textContent = hours;
-      minsEl.textContent = mins;
-      secsEl.textContent = secs;
+      if (daysEl) daysEl.textContent = days;
+      if (hoursEl) hoursEl.textContent = hours;
+      if (minsEl) minsEl.textContent = mins;
+      if (secsEl) secsEl.textContent = secs;
     }
 
     update();
     setInterval(update, 1000);
   }
 
+  // Дополнительный таймер для блока "До начала осталось"
+  function initEventTimer() {
+    const target = new Date('2026-06-21T15:30:00').getTime();
+    const daysEl = document.getElementById('event-days');
+    const hoursEl = document.getElementById('event-hours');
+    const minsEl = document.getElementById('event-mins');
+    const secsEl = document.getElementById('event-secs');
+
+    if (!daysEl) return;
+
+    function update() {
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0) {
+        if (daysEl) daysEl.textContent = '0';
+        if (hoursEl) hoursEl.textContent = '0';
+        if (minsEl) minsEl.textContent = '0';
+        if (secsEl) secsEl.textContent = '0';
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+      if (daysEl) daysEl.textContent = days;
+      if (hoursEl) hoursEl.textContent = hours;
+      if (minsEl) minsEl.textContent = mins;
+      if (secsEl) secsEl.textContent = secs;
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
+
+  // Форма RSVP
   function initForm() {
     const form = document.getElementById('guest-form');
     const message = document.getElementById('form-message');
@@ -59,31 +95,31 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const firstName = document.getElementById('guest-firstname').value.trim();
-      const lastName = document.getElementById('guest-lastname').value.trim();
-      const persons = parseInt(document.getElementById('guest-persons').value, 10) || 1;
-      const contact = document.getElementById('guest-contact').value.trim();
-      const wishes = document.getElementById('guest-wishes').value.trim();
-      const drinkInput = form.querySelector('input[name="drink"]:checked');
+      const fullname = document.getElementById('guest-fullname').value.trim();
+      const attendanceInput = form.querySelector('input[name="attendance"]:checked');
+      const drinkCheckboxes = form.querySelectorAll('input[name="drinks"]:checked');
+      
+      const attendance = attendanceInput ? attendanceInput.value : '';
+      const drinks = Array.from(drinkCheckboxes).map(cb => cb.value).join(', ');
 
-      if (!firstName || !lastName) {
-        showMessage('Please fill in name and surname', 'error');
+      if (!fullname) {
+        showMessage('Пожалуйста, укажите ваше имя', 'error');
         return;
       }
 
-      if (!contact) {
-        showMessage('Please provide contact information', 'error');
+      if (!attendance) {
+        showMessage('Пожалуйста, укажите, сможете ли вы присутствовать', 'error');
         return;
       }
+
+      const contact = ''; // Не обязательное поле в новой версии
 
       const guest = {
         id: generateId(),
-        firstName: firstName,
-        lastName: lastName,
-        persons: persons,
+        fullname: fullname,
+        attendance: attendance,
+        drinks: drinks || '',
         contact: contact,
-        wishes: wishes,
-        drink: drinkInput ? drinkInput.value : '',
         registeredAt: new Date().toISOString()
       };
 
@@ -91,11 +127,12 @@
       guests.push(guest);
       saveGuests(guests);
 
-      showMessage('Thank you! Your registration is confirmed.', 'success');
+      showMessage('Спасибо! Ваш ответ сохранен. Ждем встречи! 🤍', 'success');
       form.reset();
     });
 
     function showMessage(text, type) {
+      if (!message) return;
       message.textContent = text;
       message.className = 'form-message form-message--' + type;
       setTimeout(function () {
@@ -104,6 +141,7 @@
     }
   }
 
+  // Админ-панель
   function initAdmin() {
     const adminBtn = document.getElementById('admin-access-btn');
     const adminOverlay = document.getElementById('admin-overlay');
@@ -121,8 +159,6 @@
 
     if (!adminBtn) return;
 
-    let isLoggedIn = false;
-
     adminBtn.addEventListener('click', function () {
       adminOverlay.classList.add('active');
     });
@@ -134,35 +170,35 @@
     }
 
     if (loginForm) {
-        const loginBtn = document.getElementById('admin-login-btn');
-        if (loginBtn) {
-          loginBtn.addEventListener('click', function () {
-            var username = document.getElementById('admin-username').value;
-            var password = document.getElementById('admin-password').value;
+      const loginBtn = document.getElementById('admin-login-btn');
+      if (loginBtn) {
+        loginBtn.addEventListener('click', function () {
+          var username = document.getElementById('admin-username').value;
+          var password = document.getElementById('admin-password').value;
 
-            if (username === ADMIN_USER && password === ADMIN_PASS) {
-              isLoggedIn = true;
-              loginForm.style.display = 'none';
-              if (adminPanel) adminPanel.style.display = 'block';
-              if (loginError) loginError.style.display = 'none';
-              renderGuests();
-            } else {
-              if (loginError) {
-                loginError.textContent = 'Неверный логин или пароль';
-                loginError.style.display = 'block';
-              }
+          if (username === ADMIN_USER && password === ADMIN_PASS) {
+            loginForm.style.display = 'none';
+            if (adminPanel) adminPanel.style.display = 'block';
+            if (loginError) loginError.style.display = 'none';
+            renderGuests();
+          } else {
+            if (loginError) {
+              loginError.textContent = 'Неверный логин или пароль';
+              loginError.style.display = 'block';
             }
-          });
-        }
+          }
+        });
       }
+    }
 
     if (adminLogout) {
       adminLogout.addEventListener('click', function () {
-        isLoggedIn = false;
         if (adminPanel) adminPanel.style.display = 'none';
         if (loginForm) loginForm.style.display = 'block';
-        document.getElementById('admin-username').value = '';
-        document.getElementById('admin-password').value = '';
+        var usernameInput = document.getElementById('admin-username');
+        var passwordInput = document.getElementById('admin-password');
+        if (usernameInput) usernameInput.value = '';
+        if (passwordInput) passwordInput.value = '';
       });
     }
 
@@ -180,7 +216,7 @@
 
     if (deleteAllBtn) {
       deleteAllBtn.addEventListener('click', function () {
-        if (confirm('Delete all guest records?')) {
+        if (confirm('Удалить всех гостей?')) {
           saveGuests([]);
           renderGuests();
         }
@@ -197,11 +233,7 @@
 
       if (filter) {
         guests = guests.filter(function (g) {
-          return (
-            g.firstName.toLowerCase().indexOf(filter) !== -1 ||
-            g.lastName.toLowerCase().indexOf(filter) !== -1 ||
-            g.contact.toLowerCase().indexOf(filter) !== -1
-          );
+          return (g.fullname && g.fullname.toLowerCase().indexOf(filter) !== -1);
         });
       }
 
@@ -215,16 +247,25 @@
       if (emptyState) emptyState.style.display = 'none';
 
       tbody.innerHTML = guests.map(function (g) {
-        var drinkLabel = g.drink ? '<span class="guest-table__drink">' + escapeHtml(g.drink) + '</span>' : '-';
-        var wishesText = g.wishes ? '<div class="guest-table__wishes">' + escapeHtml(g.wishes) + '</div>' : '-';
+        var attendanceHtml = '';
+        if (g.attendance === 'yes') {
+          attendanceHtml = '<span class="guest-table__attendance guest-table__attendance--yes">✅ Да, с радостью!</span>';
+        } else if (g.attendance === 'no') {
+          attendanceHtml = '<span class="guest-table__attendance guest-table__attendance--no">❌ Не смогу</span>';
+        } else {
+          attendanceHtml = '-';
+        }
+        
+        var drinksHtml = g.drinks ? '<div class="guest-table__drinks">' + escapeHtml(g.drinks) + '</div>' : '-';
+        var contactHtml = g.contact ? escapeHtml(g.contact) : '-';
+        
         return '<tr>' +
-          '<td>' + escapeHtml(g.firstName) + '</td>' +
-          '<td>' + escapeHtml(g.lastName) + '</td>' +
-          '<td>' + g.persons + '</td>' +
-          '<td>' + escapeHtml(g.contact) + '</td>' +
-          '<td>' + drinkLabel + '</td>' +
-          '<td>' + wishesText + '</td>' +
-          '<td><button class="guest-table__delete" onclick="window.__deleteGuest(\'' + g.id + '\')">Delete</button></td>' +
+          '<td>' + escapeHtml(g.fullname) + '</td>' +
+          '<td>' + attendanceHtml + '</td>' +
+          '<td>' + drinksHtml + '</td>' +
+          '<td>' + contactHtml + '</td>' +
+          '<td>' + new Date(g.registeredAt).toLocaleDateString('ru-RU') + '</td>' +
+          '<td><button class="guest-table__delete" onclick="window.__deleteGuest(\'' + g.id + '\')">🗑 Удалить</button></td>' +
           '</tr>';
       }).join('');
 
@@ -234,20 +275,19 @@
     function updateStats(allGuests) {
       if (guestCount) guestCount.textContent = allGuests.length;
       if (totalPersons) {
-        totalPersons.textContent = allGuests.reduce(function (sum, g) { return sum + (g.persons || 1); }, 0);
+        totalPersons.textContent = allGuests.length;
       }
       if (drinkStats) {
-        var counts = {};
+        var drinkCount = 0;
         allGuests.forEach(function (g) {
-          var d = g.drink || 'none';
-          counts[d] = (counts[d] || 0) + 1;
+          if (g.drinks && g.drinks.length > 0) drinkCount++;
         });
-        drinkStats.textContent = Object.keys(counts).length;
+        drinkStats.textContent = drinkCount;
       }
     }
 
     window.__deleteGuest = function (id) {
-      if (!confirm('Delete this guest?')) return;
+      if (!confirm('Удалить этого гостя?')) return;
       var guests = getGuests().filter(function (g) { return g.id !== id; });
       saveGuests(guests);
       renderGuests();
@@ -257,16 +297,15 @@
       var guests = getGuests();
       if (guests.length === 0) return;
 
-      var headers = ['First Name', 'Last Name', 'Persons', 'Contact', 'Drink', 'Wishes', 'Registered At'];
+      var headers = ['ФИО', 'Присутствие', 'Напитки', 'Контакт', 'Дата регистрации'];
       var rows = guests.map(function (g) {
+        var attendanceText = g.attendance === 'yes' ? 'Да, с радостью!' : (g.attendance === 'no' ? 'Не смогу' : '');
         return [
-          g.firstName,
-          g.lastName,
-          g.persons,
-          g.contact,
-          g.drink || '',
-          g.wishes || '',
-          g.registeredAt
+          g.fullname,
+          attendanceText,
+          g.drinks || '',
+          g.contact || '',
+          new Date(g.registeredAt).toLocaleString('ru-RU')
         ];
       });
 
@@ -290,6 +329,7 @@
     }
 
     function escapeHtml(str) {
+      if (!str) return '';
       var div = document.createElement('div');
       div.textContent = str;
       return div.innerHTML;
@@ -310,6 +350,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     initCountdown();
+    initEventTimer();
     initForm();
     initAdmin();
     initSmoothScroll();
