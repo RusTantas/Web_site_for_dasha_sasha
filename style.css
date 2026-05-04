@@ -1381,3 +1381,17 @@ textarea.form-input {
     font-size: 10px;
   }
 }
+
+/* Секция трансфера в форме RSVP */
+.transfer-section {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--lavender-border);
+}
+
+.transfer-section__text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  font-style: italic;
+}

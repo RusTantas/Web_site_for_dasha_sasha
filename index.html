@@ -60,7 +60,7 @@
     <div class="container">
       <h2 class="section__title">Локация</h2>
       <div class="venue-card">
-        <span class="venue-card__icon">📍</span>
+        <span class="venue-card__icon"></span>
         <h3 class="venue-card__name">База отдыха «Маяк»</h3>
         <p class="venue-card__address">
           Самарская область, Ставропольский район, с.п. Васильевка
@@ -70,30 +70,6 @@
     </div>
   </section>
 
-  <!-- БЛОК 4: Трансфер -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section__title">Трансфер</h2>
-      <p class="transfer-text">Нам важно, чтобы вам было комфортно, поэтому мы организуем трансфер</p>
-      <div class="form-card transfer-form">
-        <h3 class="transfer-form__title">Пожалуйста, выберите удобный для вас вариант:</h3>
-        <div class="checkbox-group">
-          <label class="checkbox-label">
-            <input type="checkbox" name="transport" value="car" class="transport-checkbox">
-            <span class="checkbox-label__text">на личном автомобиле</span>
-          </label>
-          <label class="checkbox-label">
-            <input type="checkbox" name="transport" value="taxi" class="transport-checkbox">
-            <span class="checkbox-label__text">на такси</span>
-          </label>
-          <label class="checkbox-label">
-            <input type="checkbox" name="transport" value="bus" class="transport-checkbox">
-            <span class="checkbox-label__text">трансфер (автобус от пункта сбора)</span>
-          </label>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- БЛОК 5: Тайминг дня + Таймер (в стиле hero) -->
   <section class="section section--alt">
@@ -145,7 +121,7 @@
   <section class="section">
     <div class="container">
       <div class="dress-code">
-        <p class="dress-code__text">Будем рады видеть всех по возможности в светлых и нежных оттенках ✨</p>
+        <p class="dress-code__text">Будем рады видеть всех по возможности в светлых и нежных оттенках </p>
       </div>
     </div>
   </section>
@@ -153,24 +129,29 @@
   <!-- БЛОК 7: О цветах / Цветочный фонд -->
   <section class="section section--alt">
     <div class="container">
-      <h2 class="section__title">О цветах 🌿</h2>
+      <h2 class="section__title">О цветах </h2>
       <div class="flower-fund">
-        <p class="flower-fund__text">Мы очень любим цветы, но в день торжества не успеем насладиться их красотой. Если вы захотите порадовать нас, лучше положите небольшой вклад в наш «цветочный фонд» 💌 После свадьбы мы будем покупать себе букеты и с теплом вспоминать этот день и каждого из вас.</p>
+        <p class="flower-fund__text">Мы очень любим цветы, но в день торжества не успеем насладиться их красотой. Если вы захотите порадовать нас, лучше положите небольшой вклад в наш «цветочный фонд» После свадьбы мы будем покупать себе букеты и с теплом вспоминать этот день и каждого из вас.</p>
       </div>
     </div>
   </section>
 
-  <!-- БЛОК 8: Форма RSVP -->
+  <!-- БЛОК 8: Форма RSVP (с трансфером и количеством гостей) -->
   <section class="section" id="rsvp">
     <div class="container">
       <h2 class="section__title">Подтвердите участие</h2>
-      <p class="rsvp-deadline">Ваши ответы помогут нам всё организовать с заботой о вас 🤍</p>
+      <p class="rsvp-deadline">Ваши ответы помогут нам всё организовать с заботой о вас </p>
       <p class="rsvp-deadline__date">Пожалуйста, дайте ответ до 31.05.2026</p>
 
       <form class="form-card" id="guest-form">
         <div class="form-group">
           <label class="form-label" for="guest-fullname">Имя и фамилия + имена вашей пары / детей (если будете с ними)</label>
           <input class="form-input" type="text" id="guest-fullname" placeholder="Например: Иван Петров, жена Ольга, сын Миша" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guest-persons">Количество гостей (включая вас)</label>
+          <input class="form-input" type="number" id="guest-persons" min="1" max="20" value="1" required>
         </div>
 
         <div class="form-group">
@@ -183,6 +164,26 @@
             <label class="radio-label">
               <input type="radio" name="attendance" value="no">
               <span class="radio-label__text">К сожалению, не смогу</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- БЛОК ТРАНСФЕРА (перенесен сюда) -->
+        <div class="form-group transfer-section">
+          <label class="form-label">Трансфер</label>
+          <p class="transfer-section__text">Нам важно, чтобы вам было комфортно, поэтому мы организуем трансфер</p>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="transport" value="личный автомобиль">
+              <span class="checkbox-label__text">на личном автомобиле</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="transport" value="такси">
+              <span class="checkbox-label__text">на такси</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="transport" value="трансфер (автобус)">
+              <span class="checkbox-label__text">трансфер (автобус от пункта сбора)</span>
             </label>
           </div>
         </div>
@@ -240,7 +241,7 @@
       </form>
       
       <div class="waiting-message">
-        <p>С нетерпением ждём встречи! 💛</p>
+        <p>С нетерпением ждём встречи! </p>
       </div>
     </div>
   </section>

@@ -19,45 +19,13 @@
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
   }
 
-  // Таймер для основной страницы (до 21 июня 2026 16:00)
+  // Таймер для блока Тайминг дня
   function initCountdown() {
     const target = new Date('2026-06-21T16:00:00').getTime();
     const daysEl = document.getElementById('countdown-days');
     const hoursEl = document.getElementById('countdown-hours');
     const minsEl = document.getElementById('countdown-mins');
     const secsEl = document.getElementById('countdown-secs');
-
-    function update() {
-      const now = Date.now();
-      const diff = target - now;
-      if (diff <= 0) {
-        if (daysEl) daysEl.textContent = '0';
-        if (hoursEl) hoursEl.textContent = '0';
-        if (minsEl) minsEl.textContent = '0';
-        if (secsEl) secsEl.textContent = '0';
-        return;
-      }
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diff / (1000 * 60)) % 60);
-      const secs = Math.floor((diff / 1000) % 60);
-      if (daysEl) daysEl.textContent = days;
-      if (hoursEl) hoursEl.textContent = hours;
-      if (minsEl) minsEl.textContent = mins;
-      if (secsEl) secsEl.textContent = secs;
-    }
-
-    update();
-    setInterval(update, 1000);
-  }
-
-  // Дополнительный таймер для блока "До начала осталось"
-  function initEventTimer() {
-    const target = new Date('2026-06-21T15:30:00').getTime();
-    const daysEl = document.getElementById('event-days');
-    const hoursEl = document.getElementById('event-hours');
-    const minsEl = document.getElementById('event-mins');
-    const secsEl = document.getElementById('event-secs');
 
     if (!daysEl) return;
 
@@ -75,10 +43,10 @@
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const mins = Math.floor((diff / (1000 * 60)) % 60);
       const secs = Math.floor((diff / 1000) % 60);
-      if (daysEl) daysEl.textContent = days;
-      if (hoursEl) hoursEl.textContent = hours;
-      if (minsEl) minsEl.textContent = mins;
-      if (secsEl) secsEl.textContent = secs;
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minsEl.textContent = mins;
+      secsEl.textContent = secs;
     }
 
     update();
@@ -96,10 +64,13 @@
       e.preventDefault();
 
       const fullname = document.getElementById('guest-fullname').value.trim();
+      const persons = parseInt(document.getElementById('guest-persons').value, 10) || 1;
       const attendanceInput = form.querySelector('input[name="attendance"]:checked');
+      const transportCheckboxes = form.querySelectorAll('input[name="transport"]:checked');
       const drinkCheckboxes = form.querySelectorAll('input[name="drinks"]:checked');
       
       const attendance = attendanceInput ? attendanceInput.value : '';
+      const transport = Array.from(transportCheckboxes).map(cb => cb.value).join(', ');
       const drinks = Array.from(drinkCheckboxes).map(cb => cb.value).join(', ');
 
       if (!fullname) {
@@ -112,14 +83,13 @@
         return;
       }
 
-      const contact = ''; // Не обязательное поле в новой версии
-
       const guest = {
         id: generateId(),
         fullname: fullname,
+        persons: persons,
         attendance: attendance,
+        transport: transport || '',
         drinks: drinks || '',
-        contact: contact,
         registeredAt: new Date().toISOString()
       };
 
@@ -249,21 +219,21 @@
       tbody.innerHTML = guests.map(function (g) {
         var attendanceHtml = '';
         if (g.attendance === 'yes') {
-          attendanceHtml = '<span class="guest-table__attendance guest-table__attendance--yes">✅ Да, с радостью!</span>';
+          attendanceHtml = '<span class="guest-table__attendance guest-table__attendance--yes">✅ Да</span>';
         } else if (g.attendance === 'no') {
-          attendanceHtml = '<span class="guest-table__attendance guest-table__attendance--no">❌ Не смогу</span>';
+          attendanceHtml = '<span class="guest-table__attendance guest-table__attendance--no">❌ Нет</span>';
         } else {
           attendanceHtml = '-';
         }
         
-        var drinksHtml = g.drinks ? '<div class="guest-table__drinks">' + escapeHtml(g.drinks) + '</div>' : '-';
-        var contactHtml = g.contact ? escapeHtml(g.contact) : '-';
+        var transportHtml = g.transport ? '<div class="guest-table__transport">🚗 ' + escapeHtml(g.transport) + '</div>' : '-';
+        var drinksHtml = g.drinks ? '<div class="guest-table__drinks">🍷 ' + escapeHtml(g.drinks) + '</div>' : '-';
         
-        return '<tr>' +
-          '<td>' + escapeHtml(g.fullname) + '</td>' +
+        return '<table>' +
+          '<td><strong>' + escapeHtml(g.fullname) + '</strong><br><span class="guest-table__persons">👥 ' + g.persons + ' чел.</span></td>' +
           '<td>' + attendanceHtml + '</td>' +
+          '<td>' + transportHtml + '</td>' +
           '<td>' + drinksHtml + '</td>' +
-          '<td>' + contactHtml + '</td>' +
           '<td>' + new Date(g.registeredAt).toLocaleDateString('ru-RU') + '</td>' +
           '<td><button class="guest-table__delete" onclick="window.__deleteGuest(\'' + g.id + '\')">🗑 Удалить</button></td>' +
           '</tr>';
@@ -275,7 +245,10 @@
     function updateStats(allGuests) {
       if (guestCount) guestCount.textContent = allGuests.length;
       if (totalPersons) {
-        totalPersons.textContent = allGuests.length;
+        var total = allGuests.reduce(function (sum, g) { 
+          return sum + (parseInt(g.persons) || 1); 
+        }, 0);
+        totalPersons.textContent = total;
       }
       if (drinkStats) {
         var drinkCount = 0;
@@ -297,14 +270,15 @@
       var guests = getGuests();
       if (guests.length === 0) return;
 
-      var headers = ['ФИО', 'Присутствие', 'Напитки', 'Контакт', 'Дата регистрации'];
+      var headers = ['ФИО + гости', 'Кол-во персон', 'Присутствие', 'Трансфер', 'Напитки', 'Дата регистрации'];
       var rows = guests.map(function (g) {
-        var attendanceText = g.attendance === 'yes' ? 'Да, с радостью!' : (g.attendance === 'no' ? 'Не смогу' : '');
+        var attendanceText = g.attendance === 'yes' ? 'Да' : (g.attendance === 'no' ? 'Нет' : '');
         return [
           g.fullname,
+          g.persons || 1,
           attendanceText,
+          g.transport || '',
           g.drinks || '',
-          g.contact || '',
           new Date(g.registeredAt).toLocaleString('ru-RU')
         ];
       });
@@ -336,23 +310,9 @@
     }
   }
 
-  function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
     initCountdown();
-    initEventTimer();
     initForm();
     initAdmin();
-    initSmoothScroll();
   });
 })();
