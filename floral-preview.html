@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floral Border Variants - Preview</title>
+  <style>
+    body { margin:0; padding:0; font-family: sans-serif; background:#FAF8F5; }
+    .preview-container { max-width:1200px; margin:0 auto; padding:20px; }
+    .variant { margin-bottom:80px; position:relative; }
+    .variant-title { font-size:18px; font-weight:600; margin-bottom:20px; padding:10px; background:#F3EDF9; border-radius:8px; }
+    .iframe-wrapper { width:100%; height:600px; border:1px solid #ddd; border-radius:8px; overflow:hidden; position:relative; }
+    iframe { width:100%; height:100%; border:none; }
+    
+    /* Variant 1: Soft Lavender Dots with Gradient */
+    .variant1-left, .variant1-right {
+      position:fixed; top:0; width:60px; height:100vh; z-index:999; pointer-events:none;
+    }
+    .variant1-left { left:0; background:linear-gradient(180deg, #F3EDF9 0%, #E8D5F5 50%, #F3EDF9 100%); }
+    .variant1-right { right:0; background:linear-gradient(180deg, #F3EDF9 0%, #E8D5F5 50%, #F3EDF9 100%); }
+    .variant1-left::before, .variant1-right::before {
+      content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+      background-image: 
+        radial-gradient(circle 8px, #D4BFE5 0%, transparent 100%),
+        radial-gradient(circle 6px, #7B5FA8 0%, transparent 100%),
+        radial-gradient(circle 10px, #E8D5F5 0%, transparent 100%);
+      background-size: 60px 80px;
+      background-position: 10px 0px, 30px 40px, 20px 80px;
+      opacity:0.6;
+    }
+    
+    /* Variant 2: Vertical Floral Vine */
+    .variant2-left, .variant2-right {
+      position:fixed; top:0; width:70px; height:100vh; z-index:999; pointer-events:none;
+    }
+    .variant2-left { left:0; background:linear-gradient(180deg, #F3EDF9 0%, transparent 20%, transparent 80%, #F3EDF9 100%); }
+    .variant2-right { right:0; background:linear-gradient(180deg, #F3EDF9 0%, transparent 20%, transparent 80%, #F3EDF9 100%); }
+    .variant2-left::before, .variant2-right::before {
+      content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+      background-image:
+        radial-gradient(circle 12px at 35px 10%, #E8D5F5 0%, transparent 100%),
+        radial-gradient(circle 8px at 25px 8%, #7B5FA8 0%, transparent 100%),
+        radial-gradient(circle 10px at 40px 25%, #D4BFE5 0%, transparent 100%),
+        radial-gradient(ellipse 15px 8px at 30px 40%, #E8D5F5 0%, transparent 100%),
+        radial-gradient(circle 6px at 20px 38%, #7B5FA8 0%, transparent 100%),
+        radial-gradient(circle 11px at 35px 55%, #D4BFE5 0%, transparent 100%),
+        radial-gradient(ellipse 8px 14px at 25px 70%, #E8D5F5 0%, transparent 100%),
+        radial-gradient(circle 9px at 40px 68%, #7B5FA8 0%, transparent 100%),
+        radial-gradient(circle 12px at 30px 85%, #D4BFE5 0%, transparent 100%);
+      opacity:0.5;
+    }
+    
+    /* Variant 3: Elegant Light Rays */
+    .variant3-left, .variant3-right {
+      position:fixed; top:0; width:80px; height:100vh; z-index:999; pointer-events:none;
+    }
+    .variant3-left { left:0; background:linear-gradient(90deg, #F3EDF9 0%, transparent 100%); }
+    .variant3-right { right:0; background:linear-gradient(270deg, #F3EDF9 0%, transparent 100%); }
+    .variant3-left::before, .variant3-right::before {
+      content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 30px, #D4BFE5 30px, #D4BFE5 31px),
+        radial-gradient(circle 6px, #E8D5F5 0%, transparent 100%),
+        radial-gradient(circle 8px, #7B5FA8 0%, transparent 100%);
+      background-size: 80px 60px, 40px 40px, 60px 50px;
+      background-position: 0 0, 20px 15px, 40px 35px;
+      opacity:0.4;
+    }
+    
+    /* Variant 4: Dense Floral Pattern */
+    .variant4-left, .variant4-right {
+      position:fixed; top:0; width:65px; height:100vh; z-index:999; pointer-events:none;
+    }
+    .variant4-left { left:0; background:#F3EDF9; }
+    .variant4-right { right:0; background:#F3EDF9; }
+    .variant4-left::before, .variant4-right::before {
+      content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+      background-image:
+        radial-gradient(circle 5px, #7B5FA8 0%, transparent 100%),
+        radial-gradient(circle 7px, #D4BFE5 0%, transparent 100%),
+        radial-gradient(circle 4px, #E8D5F5 0%, transparent 100%),
+        radial-gradient(circle 6px, #7B5FA8 0%, transparent 100%),
+        radial-gradient(circle 8px, #D4BFE5 0%, transparent 100%);
+      background-size: 30px 30px;
+      background-position: 5px 5px, 20px 15px, 35px 25px, 15px 35px, 25px 45px;
+      opacity:0.5;
+    }
+    
+    /* Variant 5: Watercolor Wash with Petals */
+    .variant5-left, .variant5-right {
+      position:fixed; top:0; width:90px; height:100vh; z-index:999; pointer-events:none;
+    }
+    .variant5-left { 
+      left:0; 
+      background: linear-gradient(90deg, rgba(232, 213, 245, 0.8) 0%, rgba(243, 237, 249, 0.4) 60%, transparent 100%);
+    }
+    .variant5-right { 
+      right:0; 
+      background: linear-gradient(270deg, rgba(232, 213, 245, 0.8) 0%, rgba(243, 237, 249, 0.4) 60%, transparent 100%);
+    }
+    .variant5-left::before, .variant5-right::before {
+      content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+      background-image:
+        radial-gradient(ellipse 20px 30px at 45px 5%, rgba(123, 95, 168, 0.3) 0%, transparent 100%),
+        radial-gradient(ellipse 15px 25px at 30px 15%, rgba(212, 191, 229, 0.4) 0%, transparent 100%),
+        radial-gradient(ellipse 25px 20px at 50px 30%, rgba(232, 213, 245, 0.3) 0%, transparent 100%),
+        radial-gradient(ellipse 18px 28px at 35px 50%, rgba(123, 95, 168, 0.25) 0%, transparent 100%),
+        radial-gradient(ellipse 20px 22px at 45px 65%, rgba(212, 191, 229, 0.35) 0%, transparent 100%),
+        radial-gradient(ellipse 15px 30px at 30px 80%, rgba(232, 213, 245, 0.3) 0%, transparent 100%),
+        radial-gradient(ellipse 22px 18px at 50px 95%, rgba(123, 95, 168, 0.2) 0%, transparent 100%);
+      background-size: 90px 100%;
+      opacity:0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-container">
+    <h1 style="text-align:center; color:#7B5FA8; margin:30px 0;">5 Floral Border Variants - Choose One</h1>
+    <p style="text-align:center; color:#999; margin-bottom:40px;">Each variant is shown as a live preview. The side borders are FIXED (stay in place when scrolling).</p>
+    
+    <div class="variant">
+      <div class="variant-title">Variant 1: Soft Lavender Dots with Gradient (Light & Airy)</div>
+      <div class="iframe-wrapper">
+        <div class="variant1-left"></div>
+        <div class="variant1-right"></div>
+        <iframe src="index.html"></iframe>
+      </div>
+    </div>
+    
+    <div class="variant">
+      <div class="variant-title">Variant 2: Vertical Floral Vine (Elegant & Natural)</div>
+      <div class="iframe-wrapper">
+        <div class="variant2-left"></div>
+        <div class="variant2-right"></div>
+        <iframe src="index.html"></iframe>
+      </div>
+    </div>
+    
+    <div class="variant">
+      <div class="variant-title">Variant 3: Elegant Light Rays (Minimalist & Modern)</div>
+      <div class="iframe-wrapper">
+        <div class="variant3-left"></div>
+        <div class="variant3-right"></div>
+        <iframe src="index.html"></iframe>
+      </div>
+    </div>
+    
+    <div class="variant">
+      <div class="variant-title">Variant 4: Dense Floral Pattern (Rich & Decorative)</div>
+      <div class="iframe-wrapper">
+        <div class="variant4-left"></div>
+        <div class="variant4-right"></div>
+        <iframe src="index.html"></iframe>
+      </div>
+    </div>
+    
+    <div class="variant">
+      <div class="variant-title">Variant 5: Watercolor Wash with Petals (Soft & Romantic)</div>
+      <div class="iframe-wrapper">
+        <div class="variant5-left"></div>
+        <div class="variant5-right"></div>
+        <iframe src="index.html"></iframe>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
