@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дарья & Александр — Свадьба 21.06.2026</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --cream: #FAF8F5;
+  --champagne: #F5E6D3;
+  --sandy: #E8D5B7;
+  --sandy-dark: #C9B896;
+  --lavender: #E8D5F5;
+  --lavender-soft: #F3EDF9;
+  --lavender-border: #D4BFE5;
+  --lavender-text: #7B5FA8;
+  --text-primary: #3D3D3D;
+  --text-secondary: #7A7A7A;
+  --text-light: #999999;
+  --white: #FFFFFF;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+  --border: 1px solid rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.side-floral {
+  position: fixed;
+  top: 0;
+  width: 60px;
+  height: 100vh;
+  z-index: 999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.side-floral--left {
+  left: 0;
+  background: linear-gradient(180deg, var(--lavender-soft) 0%, transparent 30%, transparent 70%, var(--lavender-soft) 100%);
+}
+
+.side-floral--right {
+  right: 0;
+  background: linear-gradient(180deg, var(--lavender-soft) 0%, transparent 30%, transparent 70%, var(--lavender-soft) 100%);
+}
+
+.side-floral__pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background-image:
+    radial-gradient(circle at 30% 10%, var(--lavender) 0%, transparent 50%),
+    radial-gradient(circle at 70% 20%, var(--lavender-border) 0%, transparent 40%),
+    radial-gradient(circle at 50% 35%, var(--lavender) 0%, transparent 45%),
+    radial-gradient(circle at 30% 50%, var(--lavender-border) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, var(--lavender) 0%, transparent 40%),
+    radial-gradient(circle at 50% 75%, var(--lavender-border) 0%, transparent 45%),
+    radial-gradient(circle at 30% 90%, var(--lavender) 0%, transparent 50%);
+  background-size: 100% 100%;
+}
+
+.side-floral__flower {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--lavender);
+  opacity: 0.5;
+}
+
+.side-floral__flower--1 { width: 20px; height: 20px; top: 8%; left: 15px; background: var(--lavender-text); }
+.side-floral__flower--2 { width: 14px; height: 14px; top: 18%; left: 30px; }
+.side-floral__flower--3 { width: 18px; height: 18px; top: 32%; left: 10px; background: var(--lavender-border); }
+.side-floral__flower--4 { width: 12px; height: 12px; top: 45%; left: 35px; }
+.side-floral__flower--5 { width: 16px; height: 16px; top: 58%; left: 20px; background: var(--lavender-text); }
+.side-floral__flower--6 { width: 20px; height: 20px; top: 72%; left: 15px; }
+.side-floral__flower--7 { width: 14px; height: 14px; top: 85%; left: 30px; background: var(--lavender-border); }
+.side-floral__flower--8 { width: 18px; height: 18px; top: 95%; left: 10px; }
+
+.side-floral--right .side-floral__flower--1 { right: 15px; left: auto; }
+.side-floral--right .side-floral__flower--2 { right: 30px; left: auto; }
+.side-floral--right .side-floral__flower--3 { right: 10px; left: auto; }
+.side-floral--right .side-floral__flower--4 { right: 35px; left: auto; }
+.side-floral--right .side-floral__flower--5 { right: 20px; left: auto; }
+.side-floral--right .side-floral__flower--6 { right: 15px; left: auto; }
+.side-floral--right .side-floral__flower--7 { right: 30px; left: auto; }
+.side-floral--right .side-floral__flower--8 { right: 10px; left: auto; }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--cream);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  background: linear-gradient(180deg, var(--lavender-soft) 0%, var(--champagne) 100%);
+}
+
+.hero__names {
+  font-size: 48px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.hero__ampersand {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--lavender-text);
+  margin: 0 12px;
+}
+
+.hero__date {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.hero__divider {
+  width: 60px;
+  height: 1px;
+  background-color: var(--sandy);
+  margin: 24px 0;
+}
+
+.hero__subtitle {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  margin-bottom: 48px;
+}
+
+.countdown {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.countdown__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.countdown__number {
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.countdown__label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: bounce 2s infinite;
+}
+
+.scroll-hint__text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.scroll-hint__arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 1.5px solid var(--sandy-dark);
+  border-bottom: 1.5px solid var(--sandy-dark);
+  transform: rotate(45deg);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section--alt {
+  background-color: var(--white);
+}
+
+.section__title {
+  font-size: 28px;
+  font-weight: 300;
+  text-align: center;
+  color: var(--lavender-text);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.section__title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background-color: var(--lavender-border);
+}
+
+.section__subtitle {
+  font-size: 14px;
+  text-align: center;
+  color: var(--text-light);
+  margin-bottom: 48px;
+  margin-top: 18px;
+}
+
+.story {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.story__timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.story__timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--sandy);
+}
+
+.story__item {
+  position: relative;
+  margin-bottom: 36px;
+}
+
+.story__item:last-child {
+  margin-bottom: 0;
+}
+
+.story__dot {
+  position: absolute;
+  left: -32px;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--champagne);
+  border: 2px solid var(--sandy-dark);
+}
+
+.story__year {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sandy-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.story__text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.venue-card {
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.venue-card__icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.venue-card__name {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.venue-card__address {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.venue-card__details {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 24px;
+}
+
+.venue-card__detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.venue-card__detail-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+.venue-card__detail-value {
+  font-size: 15px;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.form-card {
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--cream);
+  border: var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-input:focus {
+  border-color: var(--sandy-dark);
+  box-shadow: 0 0 0 3px rgba(201, 184, 150, 0.2);
+}
+
+.form-input::placeholder {
+  color: var(--text-light);
+}
+
+textarea.form-input {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.drink-preferences {
+  margin-top: 8px;
+}
+
+.drink-preferences__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.drink-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.drink-option {
+  position: relative;
+}
+
+.drink-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.drink-option__label {
+  display: inline-block;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  background: var(--cream);
+  border: var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.drink-option input[type="radio"]:checked + .drink-option__label {
+  background: var(--lavender-soft);
+  border-color: var(--lavender-border);
+  color: var(--lavender-text);
+  font-weight: 500;
+}
+
+.drink-option__label:hover {
+  border-color: var(--sandy);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--white);
+  background: var(--lavender-text);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.btn:hover {
+  background: #6B46C1;
+  box-shadow: var(--shadow-hover);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.form-message {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  text-align: center;
+  display: none;
+}
+
+.form-message--success {
+  display: block;
+  background: #F0F9F0;
+  color: #2D7A2D;
+  border: 1px solid #C8E6C8;
+}
+
+.form-message--error {
+  display: block;
+  background: #FFF0F0;
+  color: #C0392B;
+  border: 1px solid #F5C6C6;
+}
+
+.admin-link {
+  text-align: center;
+  padding: 40px 0 60px;
+}
+
+.admin-link__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--text-light);
+  background: transparent;
+  border: var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.admin-link__btn:hover {
+  color: var(--text-secondary);
+  border-color: var(--sandy);
+  background: var(--cream);
+}
+
+.admin-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(250, 248, 245, 0.97);
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 40px 24px;
+}
+
+.admin-overlay.active {
+  display: block;
+}
+
+.admin-panel {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.admin-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--lavender-border);
+}
+
+.admin-panel__title {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.admin-panel__close {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--text-light);
+  background: transparent;
+  border: var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.admin-panel__close:hover {
+  color: var(--text-primary);
+  background: var(--cream);
+}
+
+.admin-login {
+  max-width: 400px;
+  margin: 100px auto;
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px;
+  text-align: center;
+}
+
+.admin-login__title {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.admin-login .form-group {
+  text-align: left;
+}
+
+.admin-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.admin-controls__search {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  background: var(--cream);
+  border: var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: var(--transition);
+}
+
+.admin-controls__search:focus {
+  border-color: var(--sandy-dark);
+}
+
+.admin-btn {
+  padding: 10px 20px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--white);
+  background: var(--lavender-text);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.admin-btn:hover {
+  background: #6B46C1;
+}
+
+.admin-btn--danger {
+  background: #C0392B;
+}
+
+.admin-btn--danger:hover {
+  background: #A93226;
+}
+
+.admin-btn--secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: var(--border);
+}
+
+.admin-btn--secondary:hover {
+  background: var(--cream);
+  color: var(--text-primary);
+}
+
+.admin-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  flex:1;
+  min-width: 120px;
+  background: var(--lavender-soft);
+  border: 1px solid var(--lavender-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-card__number {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.stat-card__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 8px;
+}
+
+.guest-table-wrapper {
+  overflow-x: auto;
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.guest-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.guest-table thead {
+  background: var(--lavender-soft);
+}
+
+.guest-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: var(--border);
+  white-space: nowrap;
+}
+
+.guest-table td {
+  padding: 14px 16px;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  vertical-align: top;
+}
+
+.guest-table tbody tr:hover {
+  background: rgba(245, 230, 211, 0.3);
+}
+
+.guest-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.guest-table__delete {
+  padding: 6px 12px;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #C0392B;
+  background: transparent;
+  border: 1px solid #F5C6C6;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.guest-table__delete:hover {
+  background: #FFF0F0;
+}
+
+.guest-table__wishes {
+  max-width: 200px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.guest-table__drink {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: var(--lavender-text);
+  background: var(--lavender-soft);
+  border: 1px solid var(--lavender-border);
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .hero__names {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  .hero__ampersand {
+    font-size: 20px;
+  }
+
+  .hero__date {
+    font-size: 15px;
+  }
+
+  .countdown {
+    gap: 16px;
+  }
+
+  .countdown__number {
+    font-size: 28px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .section__title {
+    font-size: 22px;
+  }
+
+  .form-card,
+  .venue-card {
+    padding: 28px 24px;
+  }
+
+  .venue-card__details {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .admin-login {
+    margin: 60px auto;
+    padding: 28px 24px;
+  }
+
+  .admin-controls {
+    flex-direction: column;
+  }
+
+  .admin-stats {
+    flex-direction: column;
+  }
+
+  .guest-table {
+    font-size: 13px;
+  }
+
+  .guest-table th,
+  .guest-table td {
+    padding: 10px 12px;
+  }
+
+  .guest-table__wishes {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__names {
+    font-size: 26px;
+  }
+
+  .countdown {
+    gap: 12px;
+  }
+
+  .countdown__item {
+    min-width: 56px;
+  }
+
+  .countdown__number {
+    font-size: 24px;
+  }
+
+  .drink-options {
+    flex-direction: column;
+  }
+
+  .drink-option {
+    width: 100%;
+  }
+
+  .drink-option__label {
+    display: block;
+    text-align: center;
+  }
+}
+
+[contenteditable="true"] {
+  outline: none;
+  border-bottom: 1px dashed var(--lavender-border);
+  transition: border-color 0.2s ease;
+}
+
+[contenteditable="true"]:hover {
+  border-bottom-color: var(--lavender-text);
+}
+
+[contenteditable="true"]:focus {
+  border-bottom-color: var(--lavender-text);
+  background: rgba(123, 95, 168, 0.05);
+}
+  </style>
+</head>
+<body>
+
+  <div class="side-floral side-floral--left">
+    <div class="side-floral__pattern"></div>
+    <div class="side-floral__flower side-floral__flower--1"></div>
+    <div class="side-floral__flower side-floral__flower--2"></div>
+    <div class="side-floral__flower side-floral__flower--3"></div>
+    <div class="side-floral__flower side-floral__flower--4"></div>
+    <div class="side-floral__flower side-floral__flower--5"></div>
+    <div class="side-floral__flower side-floral__flower--6"></div>
+    <div class="side-floral__flower side-floral__flower--7"></div>
+    <div class="side-floral__flower side-floral__flower--8"></div>
+  </div>
+
+  <div class="side-floral side-floral--right">
+    <div class="side-floral__pattern"></div>
+    <div class="side-floral__flower side-floral__flower--1"></div>
+    <div class="side-floral__flower side-floral__flower--2"></div>
+    <div class="side-floral__flower side-floral__flower--3"></div>
+    <div class="side-floral__flower side-floral__flower--4"></div>
+    <div class="side-floral__flower side-floral__flower--5"></div>
+    <div class="side-floral__flower side-floral__flower--6"></div>
+    <div class="side-floral__flower side-floral__flower--7"></div>
+    <div class="side-floral__flower side-floral__flower--8"></div>
+  </div>
+
+  <section class="hero">
+    <h1 class="hero__names" contenteditable="true" spellcheck="false">
+      Дарья<span class="hero__ampersand">&</span>Александр
+    </h1>
+    <p class="hero__subtitle" contenteditable="true" spellcheck="false">Приглашение на свадьбу</p>
+    <p class="hero__date" contenteditable="true" spellcheck="false">21 июня 2026</p>
+
+    <div class="countdown">
+      <div class="countdown__item">
+        <span class="countdown__number" id="countdown-days">0</span>
+        <span class="countdown__label">дней</span>
+      </div>
+      <div class="countdown__item">
+        <span class="countdown__number" id="countdown-hours">0</span>
+        <span class="countdown__label">часов</span>
+      </div>
+      <div class="countdown__item">
+        <span class="countdown__number" id="countdown-mins">0</span>
+        <span class="countdown__label">минут</span>
+      </div>
+      <div class="countdown__item">
+        <span class="countdown__number" id="countdown-secs">0</span>
+        <span class="countdown__label">секунд</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span class="scroll-hint__text">Подробнее</span>
+      <div class="scroll-hint__arrow"></div>
+    </div>
+  </section>
+
+  <section class="section" id="story">
+    <div class="container">
+      <h2 class="section__title" contenteditable="true" spellcheck="false">Наша история</h2>
+      <p class="section__subtitle" contenteditable="true" spellcheck="false">Как всё начиналось</p>
+
+      <div class="story">
+        <div class="story__timeline">
+          <div class="story__item">
+            <div class="story__dot"></div>
+            <div class="story__year" contenteditable="true" spellcheck="false">2019</div>
+            <div class="story__text" contenteditable="true" spellcheck="false">Мы встретились на дне рождения общего друга. Разговор за шампанским затянулся до утра.</div>
+          </div>
+          <div class="story__item">
+            <div class="story__dot"></div>
+            <div class="story__year" contenteditable="true" spellcheck="false">2020</div>
+            <div class="story__text" contenteditable="true" spellcheck="false">Первое путешествие вдвоём. Поняли, что хотим видеть друг друга каждое утро.</div>
+          </div>
+          <div class="story__item">
+            <div class="story__dot"></div>
+            <div class="story__year" contenteditable="true" spellcheck="false">2023</div>
+            <div class="story__text" contenteditable="true" spellcheck="false">Год, полный совместных открытий, переездов и планов на будущее. Мы стали настоящей командой.</div>
+          </div>
+          <div class="story__item">
+            <div class="story__dot"></div>
+            <div class="story__year" contenteditable="true" spellcheck="false">2025</div>
+            <div class="story__text" contenteditable="true" spellcheck="false">Осенью Александр сделал предложение на берегу моря под закат. Дарья сказала «Да!» без секунды сомнений.</div>
+          </div>
+          <div class="story__item">
+            <div class="story__dot"></div>
+            <div class="story__year" contenteditable="true" spellcheck="false">2026</div>
+            <div class="story__text" contenteditable="true" spellcheck="false">Мы приглашаем вас стать частью нашей истории. Ждём вас на нашей свадьбе!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="venue">
+    <div class="container">
+      <h2 class="section__title" contenteditable="true" spellcheck="false">Место и время</h2>
+      <p class="section__subtitle" contenteditable="true" spellcheck="false">Где и когда будет праздник</p>
+
+        <div class="venue-card">
+        <span class="venue-card__icon">&#9968;</span>
+        <h3 class="venue-card__name" contenteditable="true" spellcheck="false">Загородный клуб «Усадьба»</h3>
+        <p class="venue-card__address" contenteditable="true" spellcheck="false">
+          Московская область, Красногорский район,<br>
+          д. Лохино, стр. 1
+        </p>
+        <div class="venue-card__details">
+          <div class="venue-card__detail">
+            <span class="venue-card__detail-label">Дата</span>
+            <span class="venue-card__detail-value" contenteditable="true" spellcheck="false">21 июня 2026</span>
+          </div>
+          <div class="venue-card__detail">
+            <span class="venue-card__detail-label">Сбор гостей</span>
+            <span class="venue-card__detail-value" contenteditable="true" spellcheck="false">14:00</span>
+          </div>
+          <div class="venue-card__detail">
+            <span class="venue-card__detail-label">Начало церемонии</span>
+            <span class="venue-card__detail-value" contenteditable="true" spellcheck="false">15:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="rsvp">
+    <div class="container">
+      <h2 class="section__title" contenteditable="true" spellcheck="false">Подтвердите участие</h2>
+      <p class="section__subtitle" contenteditable="true" spellcheck="false">Пожалуйста, заполните форму до 1 июня</p>
+
+      <form class="form-card" id="guest-form">
+        <div class="form-group">
+          <label class="form-label" for="guest-firstname">Имя</label>
+          <input class="form-input" type="text" id="guest-firstname" placeholder="Ваше имя" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="guest-lastname">Фамилия</label>
+          <input class="form-input" type="text" id="guest-lastname" placeholder="Ваша фамилия" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="guest-persons">Количество гостей</label>
+          <input class="form-input" type="number" id="guest-persons" min="1" max="10" value="1">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="guest-contact">Телефон или e-mail</label>
+          <input class="form-input" type="text" id="guest-contact" placeholder="+7 900 000-00-00 или email@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="guest-wishes">Пожелания молодожёнам</label>
+          <textarea class="form-input" id="guest-wishes" placeholder="Ваши тёплые слова или пожелания..."></textarea>
+        </div>
+        <div class="form-group drink-preferences">
+          <div class="drink-preferences__label">Предпочтения по напиткам</div>
+          <div class="drink-options">
+            <div class="drink-option">
+              <input type="radio" name="drink" value="Безалкогольное" id="drink-soft" checked>
+              <label class="drink-option__label" for="drink-soft">Безалкогольное</label>
+            </div>
+            <div class="drink-option">
+              <input type="radio" name="drink" value="Игристое" id="drink-sparkling">
+              <label class="drink-option__label" for="drink-sparkling">Игристое</label>
+            </div>
+            <div class="drink-option">
+              <input type="radio" name="drink" value="Крепкий алкоголь" id="drink-strong">
+              <label class="drink-option__label" for="drink-strong">Крепкий алкоголь</label>
+            </div>
+            <div class="drink-option">
+              <input type="radio" name="drink" value="Пиво/Вино" id="drink-beerwine">
+              <label class="drink-option__label" for="drink-beerwine">Пиво / Вино</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn">Подтвердить участие</button>
+        </div>
+        <div class="form-message" id="form-message"></div>
+      </form>
+    </div>
+  </section>
+
+  <div class="admin-link">
+    <button class="admin-link__btn" id="admin-access-btn">
+      &#9881; Панель управления
+    </button>
+  </div>
+
+  <div class="admin-overlay" id="admin-overlay">
+    <div class="admin-login" id="admin-login-form">
+      <h3 class="admin-login__title">Вход в панель управления</h3>
+      <div class="form-group">
+        <label class="form-label" for="admin-username">Логин</label>
+        <input class="form-input" type="text" id="admin-username" placeholder="Логин">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="admin-password">Пароль</label>
+        <input class="form-input" type="password" id="admin-password" placeholder="Пароль">
+      </div>
+      <button type="button" class="btn" id="admin-login-btn" style="margin-top:8px;">Войти</button>
+      <p class="form-message form-message--error" id="admin-login-error" style="display:none;margin-top:12px;">Неверный логин или пароль</p>
+    </div>
+
+    <div class="admin-panel" id="admin-panel" style="display:none;">
+      <div class="admin-panel__header">
+        <h2 class="admin-panel__title">Панель управления</h2>
+        <div style="display:flex;gap:12px;">
+          <button class="admin-btn admin-btn--secondary" id="admin-logout">Выйти</button>
+          <button class="admin-panel__close" id="admin-close">&times;</button>
+        </div>
+      </div>
+
+      <div class="admin-stats">
+        <div class="stat-card">
+          <div class="stat-card__number" id="guest-count">0</div>
+          <div class="stat-card__label">Гостей</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number" id="total-persons">0</div>
+          <div class="stat-card__label">Персон</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number" id="drink-stats">0</div>
+          <div class="stat-card__label">Типов напитков</div>
+        </div>
+      </div>
+
+      <div class="admin-controls">
+        <input class="admin-controls__search" type="text" id="admin-search" placeholder="Поиск по имени, фамилии или контакту...">
+        <button class="admin-btn" id="admin-export">Экспорт CSV</button>
+        <button class="admin-btn admin-btn--danger" id="admin-delete-all">Удалить всё</button>
+      </div>
+
+      <div class="guest-table-wrapper">
+        <table class="guest-table">
+          <thead>
+            <tr>
+              <th>Имя</th>
+              <th>Фамилия</th>
+              <th>Персон</th>
+              <th>Контакт</th>
+              <th>Напиток</th>
+              <th>Пожелания</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="guest-tbody"></tbody>
+        </table>
+        <div class="empty-state" id="empty-state">Пока нет зарегистрированных гостей</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Дарья & Александр — 21 июня 2026
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+(function () {
+  const STORAGE_KEY = 'wedding_guests_daria_alexander';
+  const ADMIN_USER = 'DARIY';
+  const ADMIN_PASS = 'SASHA';
+
+  function getGuests() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveGuests(guests) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(guests));
+  }
+
+  function generateId() {
+    return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+  }
+
+  function initCountdown() {
+    const target = new Date('2026-06-21T15:00:00').getTime();
+    const daysEl = document.getElementById('countdown-days');
+    const hoursEl = document.getElementById('countdown-hours');
+    const minsEl = document.getElementById('countdown-mins');
+    const secsEl = document.getElementById('countdown-secs');
+
+    function update() {
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0) {
+        daysEl.textContent = '0';
+        hoursEl.textContent = '0';
+        minsEl.textContent = '0';
+        secsEl.textContent = '0';
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minsEl.textContent = mins;
+      secsEl.textContent = secs;
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
+
+  function initForm() {
+    const form = document.getElementById('guest-form');
+    const message = document.getElementById('form-message');
+
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const firstName = document.getElementById('guest-firstname').value.trim();
+      const lastName = document.getElementById('guest-lastname').value.trim();
+      const persons = parseInt(document.getElementById('guest-persons').value, 10) || 1;
+      const contact = document.getElementById('guest-contact').value.trim();
+      const wishes = document.getElementById('guest-wishes').value.trim();
+      const drinkInput = form.querySelector('input[name="drink"]:checked');
+
+      if (!firstName || !lastName) {
+        showMessage('Please fill in name and surname', 'error');
+        return;
+      }
+
+      if (!contact) {
+        showMessage('Please provide contact information', 'error');
+        return;
+      }
+
+      const guest = {
+        id: generateId(),
+        firstName: firstName,
+        lastName: lastName,
+        persons: persons,
+        contact: contact,
+        wishes: wishes,
+        drink: drinkInput ? drinkInput.value : '',
+        registeredAt: new Date().toISOString()
+      };
+
+      const guests = getGuests();
+      guests.push(guest);
+      saveGuests(guests);
+
+      showMessage('Thank you! Your registration is confirmed.', 'success');
+      form.reset();
+    });
+
+    function showMessage(text, type) {
+      message.textContent = text;
+      message.className = 'form-message form-message--' + type;
+      setTimeout(function () {
+        message.className = 'form-message';
+      }, 5000);
+    }
+  }
+
+  function initAdmin() {
+    const adminBtn = document.getElementById('admin-access-btn');
+    const adminOverlay = document.getElementById('admin-overlay');
+    const loginForm = document.getElementById('admin-login-form');
+    const loginError = document.getElementById('admin-login-error');
+    const adminPanel = document.getElementById('admin-panel');
+    const adminClose = document.getElementById('admin-close');
+    const adminLogout = document.getElementById('admin-logout');
+    const searchInput = document.getElementById('admin-search');
+    const exportBtn = document.getElementById('admin-export');
+    const deleteAllBtn = document.getElementById('admin-delete-all');
+    const guestCount = document.getElementById('guest-count');
+    const totalPersons = document.getElementById('total-persons');
+    const drinkStats = document.getElementById('drink-stats');
+
+    if (!adminBtn) return;
+
+    let isLoggedIn = false;
+
+    adminBtn.addEventListener('click', function () {
+      adminOverlay.classList.add('active');
+    });
+
+    if (adminClose) {
+      adminClose.addEventListener('click', function () {
+        adminOverlay.classList.remove('active');
+      });
+    }
+
+    if (loginForm) {
+        const loginBtn = document.getElementById('admin-login-btn');
+        if (loginBtn) {
+          loginBtn.addEventListener('click', function () {
+            var username = document.getElementById('admin-username').value;
+            var password = document.getElementById('admin-password').value;
+
+            if (username === ADMIN_USER && password === ADMIN_PASS) {
+              isLoggedIn = true;
+              loginForm.style.display = 'none';
+              if (adminPanel) adminPanel.style.display = 'block';
+              if (loginError) loginError.style.display = 'none';
+              renderGuests();
+            } else {
+              if (loginError) {
+                loginError.textContent = 'Неверный логин или пароль';
+                loginError.style.display = 'block';
+              }
+            }
+          });
+        }
+      }
+
+    if (adminLogout) {
+      adminLogout.addEventListener('click', function () {
+        isLoggedIn = false;
+        if (adminPanel) adminPanel.style.display = 'none';
+        if (loginForm) loginForm.style.display = 'block';
+        document.getElementById('admin-username').value = '';
+        document.getElementById('admin-password').value = '';
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function () {
+        renderGuests();
+      });
+    }
+
+    if (exportBtn) {
+      exportBtn.addEventListener('click', function () {
+        exportToCSV();
+      });
+    }
+
+    if (deleteAllBtn) {
+      deleteAllBtn.addEventListener('click', function () {
+        if (confirm('Delete all guest records?')) {
+          saveGuests([]);
+          renderGuests();
+        }
+      });
+    }
+
+    function renderGuests() {
+      const tbody = document.getElementById('guest-tbody');
+      const emptyState = document.getElementById('empty-state');
+      if (!tbody) return;
+
+      var guests = getGuests();
+      var filter = searchInput ? searchInput.value.toLowerCase() : '';
+
+      if (filter) {
+        guests = guests.filter(function (g) {
+          return (
+            g.firstName.toLowerCase().indexOf(filter) !== -1 ||
+            g.lastName.toLowerCase().indexOf(filter) !== -1 ||
+            g.contact.toLowerCase().indexOf(filter) !== -1
+          );
+        });
+      }
+
+      if (guests.length === 0) {
+        tbody.innerHTML = '';
+        if (emptyState) emptyState.style.display = 'block';
+        updateStats(getGuests());
+        return;
+      }
+
+      if (emptyState) emptyState.style.display = 'none';
+
+      tbody.innerHTML = guests.map(function (g) {
+        var drinkLabel = g.drink ? '<span class="guest-table__drink">' + escapeHtml(g.drink) + '</span>' : '-';
+        var wishesText = g.wishes ? '<div class="guest-table__wishes">' + escapeHtml(g.wishes) + '</div>' : '-';
+        return '<tr>' +
+          '<td>' + escapeHtml(g.firstName) + '</td>' +
+          '<td>' + escapeHtml(g.lastName) + '</td>' +
+          '<td>' + g.persons + '</td>' +
+          '<td>' + escapeHtml(g.contact) + '</td>' +
+          '<td>' + drinkLabel + '</td>' +
+          '<td>' + wishesText + '</td>' +
+          '<td><button class="guest-table__delete" onclick="window.__deleteGuest(\'' + g.id + '\')">Delete</button></td>' +
+          '</tr>';
+      }).join('');
+
+      updateStats(getGuests());
+    }
+
+    function updateStats(allGuests) {
+      if (guestCount) guestCount.textContent = allGuests.length;
+      if (totalPersons) {
+        totalPersons.textContent = allGuests.reduce(function (sum, g) { return sum + (g.persons || 1); }, 0);
+      }
+      if (drinkStats) {
+        var counts = {};
+        allGuests.forEach(function (g) {
+          var d = g.drink || 'none';
+          counts[d] = (counts[d] || 0) + 1;
+        });
+        drinkStats.textContent = Object.keys(counts).length;
+      }
+    }
+
+    window.__deleteGuest = function (id) {
+      if (!confirm('Delete this guest?')) return;
+      var guests = getGuests().filter(function (g) { return g.id !== id; });
+      saveGuests(guests);
+      renderGuests();
+    };
+
+    function exportToCSV() {
+      var guests = getGuests();
+      if (guests.length === 0) return;
+
+      var headers = ['First Name', 'Last Name', 'Persons', 'Contact', 'Drink', 'Wishes', 'Registered At'];
+      var rows = guests.map(function (g) {
+        return [
+          g.firstName,
+          g.lastName,
+          g.persons,
+          g.contact,
+          g.drink || '',
+          g.wishes || '',
+          g.registeredAt
+        ];
+      });
+
+      var csvContent = '\uFEFF' + headers.join(',') + '\n' +
+        rows.map(function (r) {
+          return r.map(function (cell) {
+            var str = String(cell);
+            if (str.indexOf(',') !== -1 || str.indexOf('"') !== -1) {
+              return '"' + str.replace(/"/g, '""') + '"';
+            }
+            return str;
+          }).join(',');
+        }).join('\n');
+
+      var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      var link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'wedding_guests_' + new Date().toISOString().slice(0, 10) + '.csv';
+      link.click();
+      URL.revokeObjectURL(link.href);
+    }
+
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+  }
+
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    initCountdown();
+    initForm();
+    initAdmin();
+    initSmoothScroll();
+  });
+})();
+  </script>
+</body>
+</html>
