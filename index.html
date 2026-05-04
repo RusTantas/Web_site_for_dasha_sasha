@@ -32,32 +32,13 @@
     <div class="side-floral__flower side-floral__flower--8"></div>
   </div>
 
-  <!-- БЛОК 1: Заголовок -->
+  <!-- БЛОК 1: Заголовок (без таймера) -->
   <section class="hero">
     <h1 class="hero__names">
       Александр<span class="hero__ampersand">&</span>Дарья
     </h1>
     <p class="hero__subtitle">приглашают вас на свою свадьбу</p>
     <p class="hero__date">21 июня 2026 года, воскресенье</p>
-
-    <div class="countdown">
-      <div class="countdown__item">
-        <span class="countdown__number" id="countdown-days">0</span>
-        <span class="countdown__label">дней</span>
-      </div>
-      <div class="countdown__item">
-        <span class="countdown__number" id="countdown-hours">0</span>
-        <span class="countdown__label">часов</span>
-      </div>
-      <div class="countdown__item">
-        <span class="countdown__number" id="countdown-mins">0</span>
-        <span class="countdown__label">минут</span>
-      </div>
-      <div class="countdown__item">
-        <span class="countdown__number" id="countdown-secs">0</span>
-        <span class="countdown__label">секунд</span>
-      </div>
-    </div>
 
     <div class="scroll-hint">
       <span class="scroll-hint__text">Подробнее</span>
@@ -114,7 +95,7 @@
     </div>
   </section>
 
-  <!-- БЛОК 5: Тайминг дня + Таймер -->
+  <!-- БЛОК 5: Тайминг дня + Таймер (в стиле hero) -->
   <section class="section section--alt">
     <div class="container">
       <h2 class="section__title">Тайминг дня</h2>
@@ -136,15 +117,27 @@
           <span class="timeline-item__event">Торт</span>
         </div>
       </div>
-      <div class="timer-until">
-        <p class="timer-until__label">До начала осталось:</p>
-        <div class="timer-until__display" id="event-timer">
-          <span id="event-days">0</span>д 
-          <span id="event-hours">0</span>ч 
-          <span id="event-mins">0</span>м 
-          <span id="event-secs">0</span>с
+      
+      <!-- ТАЙМЕР (в стиле hero, перенесен сюда) -->
+      <div class="countdown countdown--event">
+        <div class="countdown__item">
+          <span class="countdown__number" id="countdown-days">0</span>
+          <span class="countdown__label">дней</span>
+        </div>
+        <div class="countdown__item">
+          <span class="countdown__number" id="countdown-hours">0</span>
+          <span class="countdown__label">часов</span>
+        </div>
+        <div class="countdown__item">
+          <span class="countdown__number" id="countdown-mins">0</span>
+          <span class="countdown__label">минут</span>
+        </div>
+        <div class="countdown__item">
+          <span class="countdown__number" id="countdown-secs">0</span>
+          <span class="countdown__label">секунд</span>
         </div>
       </div>
+      <p class="timer-label">До начала церемонии</p>
     </div>
   </section>
 
