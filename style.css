@@ -97,11 +97,11 @@ body {
 }
 
 .hero__ampersand {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Great Vibes', cursive;
   font-size: 56px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--lavender-text);
-  margin: 0 12px;
+  display: inline-block;
 }
 
 .hero__subtitle {
@@ -359,21 +359,21 @@ body {
   color: var(--text-primary);
 }
 
-/* БЛОК 7 - ЦВЕТОЧНЫЙ ФОНД */
+/* Блок 7 - Цветочный фонд (без подложки) */
 .flower-fund {
   max-width: 700px;
   margin: 0 auto;
-  padding: 24px;
-  background: var(--white);
-  border-left: 4px solid var(--lavender-text);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  padding: 20px 0;
+  text-align: center;
 }
 
 .flower-fund__text {
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
-  line-height: 1.7;
+  font-weight: 300;
   color: var(--text-secondary);
+  letter-spacing: 0.5px;
+  line-height: 1.6;
 }
 
 /* БЛОК 8 - ФОРМА RSVP */
@@ -913,8 +913,19 @@ body {
   }
   
   .hero__ampersand {
-    font-size: 40px;
+    font-size: 38px;
   }
+}
+
+@media (max-width: 480px) {
+  .hero__names {
+    font-size: 36px;
+  }
+  
+  .hero__ampersand {
+    font-size: 28px;
+  }
+}
   
   .section {
     padding: 60px 0;
@@ -1017,4 +1028,18 @@ body {
   .waiting-message {
     font-size: 16px;
   }
+}
+
+/* Блок 2 - Текст приглашения */
+.invitation-text__content {
+  font-family: 'Inter', sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto;
 }
