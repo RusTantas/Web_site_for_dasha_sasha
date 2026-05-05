@@ -140,7 +140,8 @@ body {
   font-size: 180px;
   line-height: 1;
   font-weight: 400;
-  color: #8f8f8f;
+  /* color: #8f8f8f; */
+  color: #b2691d;
   opacity: 0.7;
   display: inline-block;
   margin: 0 auto;  /* центрирование */
