@@ -19,41 +19,27 @@
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
   }
 
-  // Таймер для блока Тайминг дня
   function initCountdown() {
-    const target = new Date('2026-06-21T16:00:00').getTime();
-    const daysEl = document.getElementById('countdown-days');
-    const hoursEl = document.getElementById('countdown-hours');
-    const minsEl = document.getElementById('countdown-mins');
-    const secsEl = document.getElementById('countdown-secs');
-
-    if (!daysEl) return;
+    const target = new Date('2026-06-21T15:00:00').getTime();
+    const displayEl = document.getElementById('countdown-display');
 
     function update() {
       const now = Date.now();
       const diff = target - now;
       if (diff <= 0) {
-        if (daysEl) daysEl.textContent = '0';
-        if (hoursEl) hoursEl.textContent = '0';
-        if (minsEl) minsEl.textContent = '0';
-        if (secsEl) secsEl.textContent = '0';
+        if (displayEl) displayEl.textContent = '0 дней';
         return;
       }
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diff / (1000 * 60)) % 60);
-      const secs = Math.floor((diff / 1000) % 60);
-      daysEl.textContent = days;
-      hoursEl.textContent = hours;
-      minsEl.textContent = mins;
-      secsEl.textContent = secs;
+      if (displayEl) {
+        displayEl.textContent = days + ' дней';
+      }
     }
 
     update();
     setInterval(update, 1000);
   }
 
-  // Форма RSVP
   function initForm() {
     const form = document.getElementById('guest-form');
     const message = document.getElementById('form-message');
@@ -63,33 +49,29 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const fullname = document.getElementById('guest-fullname').value.trim();
-      const persons = parseInt(document.getElementById('guest-persons').value, 10) || 1;
-      const attendanceInput = form.querySelector('input[name="attendance"]:checked');
-      const transportCheckboxes = form.querySelectorAll('input[name="transport"]:checked');
-      const drinkCheckboxes = form.querySelectorAll('input[name="drinks"]:checked');
-      
-      const attendance = attendanceInput ? attendanceInput.value : '';
-      const transport = Array.from(transportCheckboxes).map(cb => cb.value).join(', ');
-      const drinks = Array.from(drinkCheckboxes).map(cb => cb.value).join(', ');
+      const name = document.getElementById('guest-name').value.trim();
+      const attendance = form.querySelector('input[name="attendance"]:checked');
+      const transferCheckboxes = form.querySelectorAll('input[name="transfer"]:checked');
+      const drinkCheckboxes = form.querySelectorAll('input[name="drink"]:checked');
+      const wishes = document.getElementById('guest-wishes').value.trim();
 
-      if (!fullname) {
-        showMessage('Пожалуйста, укажите ваше имя', 'error');
+      if (!name) {
+        showMessage('Пожалуйста, укажите имя и фамилию', 'error');
         return;
       }
 
       if (!attendance) {
-        showMessage('Пожалуйста, укажите, сможете ли вы присутствовать', 'error');
+        showMessage('Пожалуйста, выберите: сможете ли вы присутствовать', 'error');
         return;
       }
 
       const guest = {
         id: generateId(),
-        fullname: fullname,
-        persons: persons,
-        attendance: attendance,
-        transport: transport || '',
-        drinks: drinks || '',
+        name: name,
+        attendance: attendance.value,
+        transfer: Array.from(transferCheckboxes).map(function (el) { return el.value; }),
+        drinks: Array.from(drinkCheckboxes).map(function (el) { return el.value; }),
+        wishes: wishes,
         registeredAt: new Date().toISOString()
       };
 
@@ -97,12 +79,11 @@
       guests.push(guest);
       saveGuests(guests);
 
-      showMessage('Спасибо! Ваш ответ сохранен. Ждем встречи! 🤍', 'success');
+      showMessage('Спасибо! Ваше участие подтверждено.', 'success');
       form.reset();
     });
 
     function showMessage(text, type) {
-      if (!message) return;
       message.textContent = text;
       message.className = 'form-message form-message--' + type;
       setTimeout(function () {
@@ -111,7 +92,6 @@
     }
   }
 
-  // Админ-панель
   function initAdmin() {
     const adminBtn = document.getElementById('admin-access-btn');
     const adminOverlay = document.getElementById('admin-overlay');
@@ -129,6 +109,8 @@
 
     if (!adminBtn) return;
 
+    let isLoggedIn = false;
+
     adminBtn.addEventListener('click', function () {
       adminOverlay.classList.add('active');
     });
@@ -139,36 +121,34 @@
       });
     }
 
-    if (loginForm) {
-      const loginBtn = document.getElementById('admin-login-btn');
-      if (loginBtn) {
-        loginBtn.addEventListener('click', function () {
-          var username = document.getElementById('admin-username').value;
-          var password = document.getElementById('admin-password').value;
+    const loginBtn = document.getElementById('admin-login-btn');
+    if (loginBtn) {
+      loginBtn.addEventListener('click', function () {
+        var username = document.getElementById('admin-username').value;
+        var password = document.getElementById('admin-password').value;
 
-          if (username === ADMIN_USER && password === ADMIN_PASS) {
-            loginForm.style.display = 'none';
-            if (adminPanel) adminPanel.style.display = 'block';
-            if (loginError) loginError.style.display = 'none';
-            renderGuests();
-          } else {
-            if (loginError) {
-              loginError.textContent = 'Неверный логин или пароль';
-              loginError.style.display = 'block';
-            }
+        if (username === ADMIN_USER && password === ADMIN_PASS) {
+          isLoggedIn = true;
+          loginForm.style.display = 'none';
+          if (adminPanel) adminPanel.style.display = 'block';
+          if (loginError) loginError.style.display = 'none';
+          renderGuests();
+        } else {
+          if (loginError) {
+            loginError.textContent = 'Неверный логин или пароль';
+            loginError.style.display = 'block';
           }
-        });
-      }
+        }
+      });
     }
 
     if (adminLogout) {
       adminLogout.addEventListener('click', function () {
+        isLoggedIn = false;
         if (adminPanel) adminPanel.style.display = 'none';
         if (loginForm) loginForm.style.display = 'block';
-        var usernameInput = document.getElementById('admin-username');
-        var passwordInput = document.getElementById('admin-password');
-        if (usernameInput) usernameInput.value = '';
-        if (passwordInput) passwordInput.value = '';
+        document.getElementById('admin-username').value = '';
+        document.getElementById('admin-password').value = '';
       });
     }
 
@@ -186,7 +166,7 @@
 
     if (deleteAllBtn) {
       deleteAllBtn.addEventListener('click', function () {
-        if (confirm('Удалить всех гостей?')) {
+        if (confirm('Удалить все записи о гостях?')) {
           saveGuests([]);
           renderGuests();
         }
@@ -203,7 +183,10 @@
 
       if (filter) {
         guests = guests.filter(function (g) {
-          return (g.fullname && g.fullname.toLowerCase().indexOf(filter) !== -1);
+          return (
+            g.name.toLowerCase().indexOf(filter) !== -1 ||
+            (g.wishes && g.wishes.toLowerCase().indexOf(filter) !== -1)
+          );
         });
       }
 
@@ -217,25 +200,17 @@
       if (emptyState) emptyState.style.display = 'none';
 
       tbody.innerHTML = guests.map(function (g) {
-        var attendanceHtml = '';
-        if (g.attendance === 'yes') {
-          attendanceHtml = '<span class="guest-table__attendance guest-table__attendance--yes">✅ Да</span>';
-        } else if (g.attendance === 'no') {
-          attendanceHtml = '<span class="guest-table__attendance guest-table__attendance--no">❌ Нет</span>';
-        } else {
-          attendanceHtml = '-';
-        }
-        
-        var transportHtml = g.transport ? '<div class="guest-table__transport">🚗 ' + escapeHtml(g.transport) + '</div>' : '-';
-        var drinksHtml = g.drinks ? '<div class="guest-table__drinks">🍷 ' + escapeHtml(g.drinks) + '</div>' : '-';
-        
-        return '<table>' +
-          '<td><strong>' + escapeHtml(g.fullname) + '</strong><br><span class="guest-table__persons">👥 ' + g.persons + ' чел.</span></td>' +
-          '<td>' + attendanceHtml + '</td>' +
-          '<td>' + transportHtml + '</td>' +
-          '<td>' + drinksHtml + '</td>' +
-          '<td>' + new Date(g.registeredAt).toLocaleDateString('ru-RU') + '</td>' +
-          '<td><button class="guest-table__delete" onclick="window.__deleteGuest(\'' + g.id + '\')">🗑 Удалить</button></td>' +
+        var drinkLabel = g.drinks && g.drinks.length > 0 
+          ? g.drinks.map(function (d) { return '<span class="guest-table__drink">' + escapeHtml(d) + '</span>'; }).join(' ') 
+          : '-';
+        var wishesText = g.wishes ? '<div class="guest-table__wishes">' + escapeHtml(g.wishes) + '</div>' : '-';
+        return '<tr>' +
+          '<td>' + escapeHtml(g.name) + '</td>' +
+          '<td>' + (g.attendance || '-') + '</td>' +
+          '<td>' + (g.transfer && g.transfer.length > 0 ? g.transfer.join(', ') : '-') + '</td>' +
+          '<td>' + drinkLabel + '</td>' +
+          '<td>' + wishesText + '</td>' +
+          '<td><button class="guest-table__delete" onclick="window.__deleteGuest(\'' + g.id + '\')">Удалить</button></td>' +
           '</tr>';
       }).join('');
 
@@ -244,18 +219,17 @@
 
     function updateStats(allGuests) {
       if (guestCount) guestCount.textContent = allGuests.length;
-      if (totalPersons) {
-        var total = allGuests.reduce(function (sum, g) { 
-          return sum + (parseInt(g.persons) || 1); 
-        }, 0);
-        totalPersons.textContent = total;
-      }
       if (drinkStats) {
-        var drinkCount = 0;
+        var counts = {};
         allGuests.forEach(function (g) {
-          if (g.drinks && g.drinks.length > 0) drinkCount++;
+          if (g.drinks) {
+            g.drinks.forEach(function (d) {
+              var drink = d || 'none';
+              counts[drink] = (counts[drink] || 0) + 1;
+            });
+          }
         });
-        drinkStats.textContent = drinkCount;
+        drinkStats.textContent = Object.keys(counts).length;
       }
     }
 
@@ -270,16 +244,15 @@
       var guests = getGuests();
       if (guests.length === 0) return;
 
-      var headers = ['ФИО + гости', 'Кол-во персон', 'Присутствие', 'Трансфер', 'Напитки', 'Дата регистрации'];
+      var headers = ['Name', 'Attendance', 'Transfer', 'Drinks', 'Wishes', 'Registered At'];
       var rows = guests.map(function (g) {
-        var attendanceText = g.attendance === 'yes' ? 'Да' : (g.attendance === 'no' ? 'Нет' : '');
         return [
-          g.fullname,
-          g.persons || 1,
-          attendanceText,
-          g.transport || '',
-          g.drinks || '',
-          new Date(g.registeredAt).toLocaleString('ru-RU')
+          g.name,
+          g.attendance || '',
+          g.transfer ? g.transfer.join('; ') : '',
+          g.drinks ? g.drinks.join('; ') : '',
+          g.wishes || '',
+          g.registeredAt
         ];
       });
 
@@ -301,13 +274,12 @@
       link.click();
       URL.revokeObjectURL(link.href);
     }
+  }
 
-    function escapeHtml(str) {
-      if (!str) return '';
-      var div = document.createElement('div');
-      div.textContent = str;
-      return div.innerHTML;
-    }
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
   }
 
   document.addEventListener('DOMContentLoaded', function () {

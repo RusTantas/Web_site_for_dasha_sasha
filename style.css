@@ -33,7 +33,7 @@ html {
 .side-floral {
   position: fixed;
   top: 0;
-  width: 60px;
+  width: 90px;
   height: 100vh;
   z-index: 999;
   pointer-events: none;
@@ -42,54 +42,32 @@ html {
 
 .side-floral--left {
   left: 0;
-  background: linear-gradient(180deg, var(--lavender-soft) 0%, transparent 30%, transparent 70%, var(--lavender-soft) 100%);
+  background: linear-gradient(90deg, rgba(232, 213, 245, 0.8) 0%, rgba(243, 237, 249, 0.4) 60%, transparent 100%);
 }
 
 .side-floral--right {
   right: 0;
-  background: linear-gradient(180deg, var(--lavender-soft) 0%, transparent 30%, transparent 70%, var(--lavender-soft) 100%);
+  background: linear-gradient(270deg, rgba(232, 213, 245, 0.8) 0%, rgba(243, 237, 249, 0.4) 60%, transparent 100%);
 }
 
-.side-floral__pattern {
+.side-floral::before {
+  content: '';
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.4;
   background-image:
-    radial-gradient(circle at 30% 10%, var(--lavender) 0%, transparent 50%),
-    radial-gradient(circle at 70% 20%, var(--lavender-border) 0%, transparent 40%),
-    radial-gradient(circle at 50% 35%, var(--lavender) 0%, transparent 45%),
-    radial-gradient(circle at 30% 50%, var(--lavender-border) 0%, transparent 50%),
-    radial-gradient(circle at 70% 60%, var(--lavender) 0%, transparent 40%),
-    radial-gradient(circle at 50% 75%, var(--lavender-border) 0%, transparent 45%),
-    radial-gradient(circle at 30% 90%, var(--lavender) 0%, transparent 50%);
-  background-size: 100% 100%;
+    radial-gradient(ellipse 20px 30px at 45px 5%, rgba(123, 95, 168, 0.3) 0%, transparent 100%),
+    radial-gradient(ellipse 15px 25px at 30px 15%, rgba(212, 191, 229, 0.4) 0%, transparent 100%),
+    radial-gradient(ellipse 25px 20px at 50px 30%, rgba(232, 213, 245, 0.3) 0%, transparent 100%),
+    radial-gradient(ellipse 18px 28px at 35px 50%, rgba(123, 95, 168, 0.25) 0%, transparent 100%),
+    radial-gradient(ellipse 20px 22px at 45px 65%, rgba(212, 191, 229, 0.35) 0%, transparent 100%),
+    radial-gradient(ellipse 15px 30px at 30px 80%, rgba(232, 213, 245, 0.3) 0%, transparent 100%),
+    radial-gradient(ellipse 22px 18px at 50px 95%, rgba(123, 95, 168, 0.2) 0%, transparent 100%);
+  background-size: 90px 100%;
+  opacity: 0.7;
 }
-
-.side-floral__flower {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--lavender);
-  opacity: 0.5;
-}
-
-.side-floral__flower--1 { width: 20px; height: 20px; top: 8%; left: 15px; background: var(--lavender-text); }
-.side-floral__flower--2 { width: 14px; height: 14px; top: 18%; left: 30px; }
-.side-floral__flower--3 { width: 18px; height: 18px; top: 32%; left: 10px; background: var(--lavender-border); }
-.side-floral__flower--4 { width: 12px; height: 12px; top: 45%; left: 35px; }
-.side-floral__flower--5 { width: 16px; height: 16px; top: 58%; left: 20px; background: var(--lavender-text); }
-.side-floral__flower--6 { width: 20px; height: 20px; top: 72%; left: 15px; }
-.side-floral__flower--7 { width: 14px; height: 14px; top: 85%; left: 30px; background: var(--lavender-border); }
-.side-floral__flower--8 { width: 18px; height: 18px; top: 95%; left: 10px; }
-
-.side-floral--right .side-floral__flower--1 { right: 15px; left: auto; }
-.side-floral--right .side-floral__flower--2 { right: 30px; left: auto; }
-.side-floral--right .side-floral__flower--3 { right: 10px; left: auto; }
-.side-floral--right .side-floral__flower--4 { right: 35px; left: auto; }
-.side-floral--right .side-floral__flower--5 { right: 20px; left: auto; }
-.side-floral--right .side-floral__flower--6 { right: 15px; left: auto; }
-.side-floral--right .side-floral__flower--7 { right: 30px; left: auto; }
-.side-floral--right .side-floral__flower--8 { right: 10px; left: auto; }
 
 .container {
   max-width: 800px;
@@ -165,32 +143,15 @@ body {
 }
 
 .countdown {
-  display: flex;
-  gap: 24px;
   margin-bottom: 48px;
+  text-align: center;
 }
 
-.countdown__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 70px;
-}
-
-.countdown__number {
+.countdown__display {
   font-size: 36px;
   font-weight: 300;
   color: var(--text-primary);
   line-height: 1;
-}
-
-.countdown__label {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--text-light);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 8px;
 }
 
 .scroll-hint {
@@ -859,11 +820,7 @@ textarea.form-input {
     font-size: 15px;
   }
 
-  .countdown {
-    gap: 16px;
-  }
-
-  .countdown__number {
+  .countdown__display {
     font-size: 28px;
   }
 
@@ -917,15 +874,7 @@ textarea.form-input {
     font-size: 26px;
   }
 
-  .countdown {
-    gap: 12px;
-  }
-
-  .countdown__item {
-    min-width: 56px;
-  }
-
-  .countdown__number {
+  .countdown__display {
     font-size: 24px;
   }
 
@@ -956,442 +905,4 @@ textarea.form-input {
 [contenteditable="true"]:focus {
   border-bottom-color: var(--lavender-text);
   background: rgba(123, 95, 168, 0.05);
-}
-
-/* ===== НОВЫЕ СТИЛИ ДЛЯ ОБНОВЛЕННОГО САЙТА ===== */
-
-/* Блок 2 - Текст приглашения */
-.invitation-text {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.invitation-text__content {
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--text-primary);
-  font-style: italic;
-  padding: 20px 0;
-}
-
-/* Блок 3 - Локация (обновленная) */
-.venue-card__link {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 10px 20px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--lavender-text);
-  background: var(--lavender-soft);
-  border: 1px solid var(--lavender-border);
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.venue-card__link:hover {
-  background: var(--lavender-border);
-  color: var(--white);
-}
-
-/* Блок 4 - Трансфер */
-.transfer-text {
-  text-align: center;
-  font-size: 16px;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
-}
-
-.transfer-form {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.transfer-form__title {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.checkbox-group {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-size: 15px;
-  color: var(--text-primary);
-  padding: 8px 12px;
-  background: var(--cream);
-  border-radius: var(--radius);
-  transition: var(--transition);
-}
-
-.checkbox-label:hover {
-  background: var(--lavender-soft);
-}
-
-.checkbox-label input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  margin-right: 12px;
-  cursor: pointer;
-  accent-color: var(--lavender-text);
-}
-
-.checkbox-label__text {
-  flex: 1;
-}
-
-/* Блок 5 - Тайминг дня */
-.timeline-card {
-  max-width: 500px;
-  margin: 0 auto;
-  background: var(--white);
-  border: var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 32px;
-}
-
-.timeline-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  border-bottom: 1px dashed var(--lavender-border);
-}
-
-.timeline-item:last-child {
-  border-bottom: none;
-}
-
-.timeline-item__time {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--lavender-text);
-}
-
-.timeline-item__event {
-  font-size: 16px;
-  color: var(--text-secondary);
-}
-
-.timer-until {
-  text-align: center;
-  margin-top: 32px;
-  padding: 20px;
-  background: var(--lavender-soft);
-  border-radius: var(--radius);
-}
-
-.timer-until__label {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  margin-bottom: 12px;
-}
-
-.timer-until__display {
-  font-size: 28px;
-  font-weight: 300;
-  color: var(--lavender-text);
-  letter-spacing: 2px;
-}
-
-/* Блок 6 - Дресс-код */
-.dress-code {
-  text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, var(--cream) 0%, var(--lavender-soft) 100%);
-  border-radius: var(--radius);
-}
-
-.dress-code__text {
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--text-primary);
-}
-
-/* Блок 7 - Цветочный фонд */
-.flower-fund {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 24px;
-  background: var(--white);
-  border-left: 4px solid var(--lavender-text);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.flower-fund__text {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--text-secondary);
-}
-
-/* Блок 8 - Обновленная форма RSVP */
-.rsvp-deadline {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--lavender-text);
-  margin-bottom: 8px;
-}
-
-.rsvp-deadline__date {
-  text-align: center;
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 32px;
-}
-
-.radio-group {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.radio-label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 8px 16px;
-  background: var(--cream);
-  border-radius: var(--radius);
-  transition: var(--transition);
-}
-
-.radio-label:hover {
-  background: var(--lavender-soft);
-}
-
-.radio-label input[type="radio"] {
-  width: 18px;
-  height: 18px;
-  margin-right: 10px;
-  cursor: pointer;
-  accent-color: var(--lavender-text);
-}
-
-.radio-label__text {
-  font-size: 15px;
-  color: var(--text-primary);
-}
-
-.drink-options--checkbox {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 10px;
-}
-
-.drink-option {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.drink-option input[type="checkbox"] {
-  position: static;
-  opacity: 1;
-  pointer-events: auto;
-  width: 18px;
-  height: 18px;
-  margin-right: 10px;
-  accent-color: var(--lavender-text);
-}
-
-.drink-option .drink-option__label {
-  display: inline-block;
-  padding: 8px 0;
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-secondary);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.drink-option:hover .drink-option__label {
-  color: var(--lavender-text);
-}
-
-.drink-option input[type="checkbox"]:checked + .drink-option__label {
-  background: transparent;
-  border: none;
-  color: var(--lavender-text);
-  font-weight: 500;
-}
-
-.waiting-message {
-  text-align: center;
-  margin-top: 48px;
-  padding: 24px;
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--lavender-text);
-}
-
-/* Обновленная таблица админ-панели */
-.guest-table__drinks {
-  max-width: 200px;
-  font-size: 12px;
-  color: var(--text-secondary);
-}
-
-.guest-table__attendance {
-  display: inline-block;
-  padding: 4px 10px;
-  font-size: 11px;
-  font-weight: 500;
-  border-radius: 20px;
-}
-
-.guest-table__attendance--yes {
-  background: #E8F5E9;
-  color: #2E7D32;
-}
-
-.guest-table__attendance--no {
-  background: #FFEBEE;
-  color: #C62828;
-}
-
-/* Адаптив для новых блоков */
-@media (max-width: 768px) {
-  .invitation-text__content {
-    font-size: 18px;
-  }
-  
-  .timeline-item__time {
-    font-size: 16px;
-  }
-  
-  .timeline-item__event {
-    font-size: 14px;
-  }
-  
-  .timer-until__display {
-    font-size: 22px;
-  }
-  
-  .radio-group {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .drink-options--checkbox {
-    grid-template-columns: 1fr;
-  }
-  
-  .waiting-message {
-    font-size: 18px;
-  }
-  
-  .dress-code__text {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .timeline-card {
-    padding: 20px;
-  }
-  
-  .timer-until__display {
-    font-size: 18px;
-  }
-  
-  .flower-fund {
-    padding: 16px;
-  }
-}
-
-/* Таймер в блоке Тайминг дня (в стиле hero) */
-.countdown--event {
-  display: flex;
-  gap: 24px;
-  margin: 48px auto 16px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.countdown--event .countdown__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 85px;
-  background: var(--lavender-soft);
-  padding: 20px 16px;
-  border-radius: var(--radius);
-  border: 1px solid var(--lavender-border);
-}
-
-.countdown--event .countdown__number {
-  font-size: 40px;
-  font-weight: 300;
-  color: var(--lavender-text);
-  line-height: 1.2;
-}
-
-.countdown--event .countdown__label {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-light);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 10px;
-}
-
-.timer-label {
-  text-align: center;
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-top: 16px;
-  font-style: italic;
-}
-
-@media (max-width: 768px) {
-  .countdown--event {
-    gap: 12px;
-    flex-wrap: wrap;
-    margin: 32px auto 12px;
-  }
-  
-  .countdown--event .countdown__item {
-    min-width: 65px;
-    padding: 14px 12px;
-  }
-  
-  .countdown--event .countdown__number {
-    font-size: 28px;
-  }
-  
-  .countdown--event .countdown__label {
-    font-size: 10px;
-  }
-}
-
-/* Секция трансфера в форме RSVP */
-.transfer-section {
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid var(--lavender-border);
-}
-
-.transfer-section__text {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
-  font-style: italic;
 }

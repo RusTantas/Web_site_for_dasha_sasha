@@ -3,42 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Александр & Дарья — Свадьба 21.06.2026</title>
+  <title>Дарья & Александр — Свадьба 21.06.2026</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="side-floral side-floral--left">
-    <div class="side-floral__pattern"></div>
-    <div class="side-floral__flower side-floral__flower--1"></div>
-    <div class="side-floral__flower side-floral__flower--2"></div>
-    <div class="side-floral__flower side-floral__flower--3"></div>
-    <div class="side-floral__flower side-floral__flower--4"></div>
-    <div class="side-floral__flower side-floral__flower--5"></div>
-    <div class="side-floral__flower side-floral__flower--6"></div>
-    <div class="side-floral__flower side-floral__flower--7"></div>
-    <div class="side-floral__flower side-floral__flower--8"></div>
-  </div>
+  <div class="side-floral side-floral--left"></div>
+  <div class="side-floral side-floral--right"></div>
 
-  <div class="side-floral side-floral--right">
-    <div class="side-floral__pattern"></div>
-    <div class="side-floral__flower side-floral__flower--1"></div>
-    <div class="side-floral__flower side-floral__flower--2"></div>
-    <div class="side-floral__flower side-floral__flower--3"></div>
-    <div class="side-floral__flower side-floral__flower--4"></div>
-    <div class="side-floral__flower side-floral__flower--5"></div>
-    <div class="side-floral__flower side-floral__flower--6"></div>
-    <div class="side-floral__flower side-floral__flower--7"></div>
-    <div class="side-floral__flower side-floral__flower--8"></div>
-  </div>
-
-  <!-- БЛОК 1: Заголовок (без таймера) -->
   <section class="hero">
-    <h1 class="hero__names">
-      Александр<span class="hero__ampersand">&</span>Дарья
+    <h1 class="hero__names" contenteditable="true" spellcheck="false">
+      Александр и Дарья<span class="hero__ampersand">&</span>приглашают вас на свою свадьбу
     </h1>
-    <p class="hero__subtitle">приглашают вас на свою свадьбу</p>
-    <p class="hero__date">21 июня 2026 года, воскресенье</p>
+    <p class="hero__date" contenteditable="true" spellcheck="false">21 июня 2026 года, воскресенье</p>
+    <p class="hero__subtitle" contenteditable="true" spellcheck="false">Мы очень ждали момента, когда сможем разделить с вами один из самых важных и счастливых дней нашей жизни — день нашей свадьбы</p>
+
+    <div class="countdown">
+      <div class="countdown__display" id="countdown-display">0 дней</div>
+    </div>
 
     <div class="scroll-hint">
       <span class="scroll-hint__text">Подробнее</span>
@@ -46,203 +28,188 @@
     </div>
   </section>
 
-  <!-- БЛОК 2: Текст приглашения -->
-  <section class="section">
+  <section class="section" id="venue">
     <div class="container">
-      <div class="invitation-text">
-        <p class="invitation-text__content">Мы очень ждали момента, когда сможем разделить с вами один из самых важных и счастливых дней нашей жизни — день нашей свадьбы</p>
-      </div>
-    </div>
-  </section>
+      <h2 class="section__title" contenteditable="true" spellcheck="false">Локация</h2>
+      <p class="section__subtitle" contenteditable="true" spellcheck="false">Где будем праздновать</p>
 
-  <!-- БЛОК 3: Локация -->
-  <section class="section section--alt" id="venue">
-    <div class="container">
-      <h2 class="section__title">Локация</h2>
       <div class="venue-card">
-        <span class="venue-card__icon"></span>
-        <h3 class="venue-card__name">База отдыха «Маяк»</h3>
-        <p class="venue-card__address">
+        <span class="venue-card__icon">&#9968;</span>
+        <h3 class="venue-card__name" contenteditable="true" spellcheck="false">База отдыха «Маяк»</h3>
+        <p class="venue-card__address" contenteditable="true" spellcheck="false">
           Самарская область, Ставропольский район, с.п. Васильевка
         </p>
-        <a href="https://yandex.ru/navi/org/mayak/28701397180?si=4373ty1h6ku1prffagqdzzdrmr" target="_blank" class="venue-card__link">Открыть в навигаторе →</a>
+        <div class="venue-card__details">
+          <div class="venue-card__detail">
+            <span class="venue-card__detail-label">Ссылка на навигацию</span>
+            <span class="venue-card__detail-value" contenteditable="true" spellcheck="false">
+              <a href="https://yandex.ru/navi/org/mayak/28701397180?si=4373ty1h6ku1prffagqdzzdrmr" target="_blank" style="color: var(--lavender-text); text-decoration: none;">Открыть в Яндекс.Картах</a>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-
-  <!-- БЛОК 5: Тайминг дня + Таймер (в стиле hero) -->
-  <section class="section section--alt">
+  <section class="section" id="transfer">
     <div class="container">
-      <h2 class="section__title">Тайминг дня</h2>
-      <div class="timeline-card">
-        <div class="timeline-item">
-          <span class="timeline-item__time">15:30</span>
-          <span class="timeline-item__event">Сбор гостей</span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-item__time">16:00</span>
-          <span class="timeline-item__event">Церемония</span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-item__time">16:40</span>
-          <span class="timeline-item__event">Банкет</span>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-item__time">21:30</span>
-          <span class="timeline-item__event">Торт</span>
-        </div>
-      </div>
-      
-      <!-- ТАЙМЕР (в стиле hero, перенесен сюда) -->
-      <div class="countdown countdown--event">
-        <div class="countdown__item">
-          <span class="countdown__number" id="countdown-days">0</span>
-          <span class="countdown__label">дней</span>
-        </div>
-        <div class="countdown__item">
-          <span class="countdown__number" id="countdown-hours">0</span>
-          <span class="countdown__label">часов</span>
-        </div>
-        <div class="countdown__item">
-          <span class="countdown__number" id="countdown-mins">0</span>
-          <span class="countdown__label">минут</span>
-        </div>
-        <div class="countdown__item">
-          <span class="countdown__number" id="countdown-secs">0</span>
-          <span class="countdown__label">секунд</span>
+      <h2 class="section__title" contenteditable="true" spellcheck="false">Трансфер</h2>
+      <p class="section__subtitle" contenteditable="true" spellcheck="false">Нам важно, чтобы вам было комфортно, поэтому мы организуем трансфер</p>
+
+      <div class="venue-card">
+        <p contenteditable="true" spellcheck="false" style="margin-bottom:20px; line-height:1.6;">
+          Нам важно, чтобы вам было комфортно, поэтому мы организуем трансфер
+        </p>
+        <h3 class="section__title" contenteditable="true" spellcheck="false" style="font-size:18px; margin-bottom:16px;">Пожалуйста, выберите удобный для вас вариант:</h3>
+        <div class="drink-options" style="justify-content:center;">
+          <div class="drink-option">
+            <input type="checkbox" name="transfer" value="на личном автомобиле" id="transfer-car">
+            <label class="drink-option__label" for="transfer-car">на личном автомобиле</label>
+          </div>
+          <div class="drink-option">
+            <input type="checkbox" name="transfer" value="на такси" id="transfer-taxi">
+            <label class="drink-option__label" for="transfer-taxi">на такси</label>
+          </div>
+          <div class="drink-option">
+            <input type="checkbox" name="transfer" value="трансфер (автобус от пункта сбора)" id="transfer-bus">
+            <label class="drink-option__label" for="transfer-bus">трансфер (автобус от пункта сбора)</label>
+          </div>
         </div>
       </div>
-      <p class="timer-label">До начала церемонии</p>
     </div>
   </section>
 
-  <!-- БЛОК 6: Пожелания по одежде -->
-  <section class="section">
+  <section class="section section--alt" id="timing">
     <div class="container">
-      <div class="dress-code">
-        <p class="dress-code__text">Будем рады видеть всех по возможности в светлых и нежных оттенках </p>
+      <h2 class="section__title" contenteditable="true" spellcheck="false">Тайминг дня</h2>
+      <p class="section__subtitle" contenteditable="true" spellcheck="false">До начала осталось: <span id="countdown-display"></span></p>
+
+      <div class="venue-card">
+        <div class="venue-card__details" style="flex-direction:column; gap:16px;">
+          <div class="venue-card__detail" style="justify-content:space-between; display:flex;">
+            <span class="venue-card__detail-label" contenteditable="true" spellcheck="false">Сбор гостей</span>
+            <span class="venue-card__detail-value" contenteditable="true" spellcheck="false">15:30</span>
+          </div>
+          <div class="venue-card__detail" style="justify-content:space-between; display:flex;">
+            <span class="venue-card__detail-label" contenteditable="true" spellcheck="false">Церемония</span>
+            <span class="venue-card__detail-value" contenteditable="true" spellcheck="false">16:00</span>
+          </div>
+          <div class="venue-card__detail" style="justify-content:space-between; display:flex;">
+            <span class="venue-card__detail-label" contenteditable="true" spellcheck="false">Банкет</span>
+            <span class="venue-card__detail-value" contenteditable="true" spellcheck="false">16:40</span>
+          </div>
+          <div class="venue-card__detail" style="justify-content:space-between; display:flex;">
+            <span class="venue-card__detail-label" contenteditable="true" spellcheck="false">Торт</span>
+            <span class="venue-card__detail-value" contenteditable="true" spellcheck="false">21:30</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- БЛОК 7: О цветах / Цветочный фонд -->
-  <section class="section section--alt">
+  <section class="section" id="dresscode">
     <div class="container">
-      <h2 class="section__title">О цветах </h2>
-      <div class="flower-fund">
-        <p class="flower-fund__text">Мы очень любим цветы, но в день торжества не успеем насладиться их красотой. Если вы захотите порадовать нас, лучше положите небольшой вклад в наш «цветочный фонд» После свадьбы мы будем покупать себе букеты и с теплом вспоминать этот день и каждого из вас.</p>
-      </div>
+      <h2 class="section__title" contenteditable="true" spellcheck="false">Пожелания по одежде ✨</h2>
+      <p contenteditable="true" spellcheck="false" style="text-align:center; max-width:600px; margin:0 auto 40px; line-height:1.6;">
+        Будем рады видеть всех по возможности в светлых и нежных оттенках ✨
+      </p>
     </div>
   </section>
 
-  <!-- БЛОК 8: Форма RSVP (с трансфером и количеством гостей) -->
+  <section class="section section--alt" id="flowerfund">
+    <div class="container">
+      <h2 class="section__title" contenteditable="true" spellcheck="false">О цветах 🌸</h2>
+      <p contenteditable="true" spellcheck="false" style="text-align:center; max-width:700px; margin:0 auto 40px; line-height:1.6;">
+        Мы очень любим цветы, но в день торжества не успеем насладиться их красотой. Если вы захотите порадовать нас, лучше положите небольшой вклад в наш «цветочный фонд» 🌸 После свадьбы мы будем покупать себе букеты и с теплом вспоминать этот день и каждого из вас.
+      </p>
+    </div>
+  </section>
+
   <section class="section" id="rsvp">
     <div class="container">
-      <h2 class="section__title">Подтвердите участие</h2>
-      <p class="rsvp-deadline">Ваши ответы помогут нам всё организовать с заботой о вас </p>
-      <p class="rsvp-deadline__date">Пожалуйста, дайте ответ до 31.05.2026</p>
+      <p contenteditable="true" spellcheck="false" style="text-align:center; max-width:700px; margin:0 auto 40px; line-height:1.6; font-size:15px;">
+        Ваши ответы помогут нам всё организовать с заботой о вас 🤍<br>
+        Пожалуйста, дайте ответ до 31.05.2026
+      </p>
+      <h2 class="section__title" contenteditable="true" spellcheck="false">Подтвердите участие</h2>
+      <p class="section__subtitle" contenteditable="true" spellcheck="false">Пожалуйста, заполните форму</p>
 
       <form class="form-card" id="guest-form">
         <div class="form-group">
-          <label class="form-label" for="guest-fullname">Имя и фамилия + имена вашей пары / детей (если будете с ними)</label>
-          <input class="form-input" type="text" id="guest-fullname" placeholder="Например: Иван Петров, жена Ольга, сын Миша" required>
+          <label class="form-label" for="guest-name">Имя и фамилию + имена вашей пары / детей (если будете с ними)</label>
+          <input class="form-input" type="text" id="guest-name" placeholder="Имя и фамилия + имена..." required>
         </div>
-
-        <div class="form-group">
-          <label class="form-label" for="guest-persons">Количество гостей (включая вас)</label>
-          <input class="form-input" type="number" id="guest-persons" min="1" max="20" value="1" required>
-        </div>
-
+        
         <div class="form-group">
           <label class="form-label">Сможете ли вы присутствовать?</label>
-          <div class="radio-group">
-            <label class="radio-label">
-              <input type="radio" name="attendance" value="yes" required>
-              <span class="radio-label__text">Да, с радостью!</span>
-            </label>
-            <label class="radio-label">
-              <input type="radio" name="attendance" value="no">
-              <span class="radio-label__text">К сожалению, не смогу</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- БЛОК ТРАНСФЕРА (перенесен сюда) -->
-        <div class="form-group transfer-section">
-          <label class="form-label">Трансфер</label>
-          <p class="transfer-section__text">Нам важно, чтобы вам было комфортно, поэтому мы организуем трансфер</p>
-          <div class="checkbox-group">
-            <label class="checkbox-label">
-              <input type="checkbox" name="transport" value="личный автомобиль">
-              <span class="checkbox-label__text">на личном автомобиле</span>
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" name="transport" value="такси">
-              <span class="checkbox-label__text">на такси</span>
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" name="transport" value="трансфер (автобус)">
-              <span class="checkbox-label__text">трансфер (автобус от пункта сбора)</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="form-group drink-preferences">
-          <div class="drink-preferences__label">Предпочтения по напиткам (можно выбрать несколько вариантов):</div>
-          <div class="drink-options drink-options--checkbox">
-            <label class="drink-option">
-              <input type="checkbox" name="drinks" value="Красное сухое">
-              <span class="drink-option__label">Красное сухое</span>
-            </label>
-            <label class="drink-option">
-              <input type="checkbox" name="drinks" value="Красное полусладкое">
-              <span class="drink-option__label">Красное полусладкое</span>
-            </label>
-            <label class="drink-option">
-              <input type="checkbox" name="drinks" value="Белое сухое">
-              <span class="drink-option__label">Белое сухое</span>
-            </label>
-            <label class="drink-option">
-              <input type="checkbox" name="drinks" value="Белое полусладкое">
-              <span class="drink-option__label">Белое полусладкое</span>
-            </label>
-            <label class="drink-option">
-              <input type="checkbox" name="drinks" value="Шампанское">
-              <span class="drink-option__label">Шампанское</span>
-            </label>
-            <label class="drink-option">
-              <input type="checkbox" name="drinks" value="Коньяк">
-              <span class="drink-option__label">Коньяк</span>
-            </label>
-            <label class="drink-option">
-              <input type="checkbox" name="drinks" value="Виски">
-              <span class="drink-option__label">Виски</span>
-            </label>
-            <label class="drink-option">
-              <input type="checkbox" name="drinks" value="Водка">
-              <span class="drink-option__label">Водка</span>
-            </label>
-            <label class="drink-option">
-              <input type="checkbox" name="drinks" value="Лимончелло">
-              <span class="drink-option__label">Лимончелло</span>
-            </label>
-            <label class="drink-option">
-              <input type="checkbox" name="drinks" value="Безалкогольные напитки">
-              <span class="drink-option__label">Безалкогольные напитки</span>
-            </label>
+          <div class="drink-options" style="justify-content:center;">
+            <div class="drink-option">
+              <input type="radio" name="attendance" value="Да, с радостью!" id="att-yes" checked>
+              <label class="drink-option__label" for="att-yes">Да, с радостью!</label>
+            </div>
+            <div class="drink-option">
+              <input type="radio" name="attendance" value="К сожалению, не смогу" id="att-no">
+              <label class="drink-option__label" for="att-no">К сожалению, не смогу</label>
+            </div>
           </div>
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn">Отправить ответ</button>
+          <label class="form-label">Предпочтения по напиткам (можно несколько)</label>
+          <div class="drink-options" style="justify-content:center;">
+            <div class="drink-option">
+              <input type="checkbox" name="drink" value="Красное сухое" id="drink-red-dry">
+              <label class="drink-option__label" for="drink-red-dry">Красное сухое</label>
+            </div>
+            <div class="drink-option">
+              <input type="checkbox" name="drink" value="Красное полусладкое" id="drink-red-sweet">
+              <label class="drink-option__label" for="drink-red-sweet">Красное полусладкое</label>
+            </div>
+            <div class="drink-option">
+              <input type="checkbox" name="drink" value="Белое сухое" id="drink-white-dry">
+              <label class="drink-option__label" for="drink-white-dry">Белое сухое</label>
+            </div>
+            <div class="drink-option">
+              <input type="checkbox" name="drink" value="Белое полусладкое" id="drink-white-sweet">
+              <label class="drink-option__label" for="drink-white-sweet">Белое полусладкое</label>
+            </div>
+            <div class="drink-option">
+              <input type="checkbox" name="drink" value="Шампанское" id="drink-sparkling">
+              <label class="drink-option__label" for="drink-sparkling">Шампанское</label>
+            </div>
+            <div class="drink-option">
+              <input type="checkbox" name="drink" value="Коньяк" id="drink-cognac">
+              <label class="drink-option__label" for="drink-cognac">Коньяк</label>
+            </div>
+            <div class="drink-option">
+              <input type="checkbox" name="drink" value="Виски" id="drink-whisky">
+              <label class="drink-option__label" for="drink-whisky">Виски</label>
+            </div>
+            <div class="drink-option">
+              <input type="checkbox" name="drink" value="Водка" id="drink-vodka">
+              <label class="drink-option__label" for="drink-vodka">Водка</label>
+            </div>
+            <div class="drink-option">
+              <input type="checkbox" name="drink" value="Лимончелло" id="drink-limoncello">
+              <label class="drink-option__label" for="drink-limoncello">Лимончелло</label>
+            </div>
+            <div class="drink-option">
+              <input type="checkbox" name="drink" value="Безалкогольные напитки" id="drink-soft">
+              <label class="drink-option__label" for="drink-soft">Безалкогольные напитки</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guest-wishes">Пожелания молодожёнам</label>
+          <textarea class="form-input" id="guest-wishes" placeholder="Ваши тёплые слова или пожелания..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <button type="submit" class="btn">Подтвердить участие</button>
         </div>
         <div class="form-message" id="form-message"></div>
       </form>
-      
-      <div class="waiting-message">
-        <p>С нетерпением ждём встречи! </p>
-      </div>
     </div>
   </section>
 
@@ -300,14 +267,14 @@
       <div class="guest-table-wrapper">
         <table class="guest-table">
           <thead>
-            <tr>
-              <th>Имя</th>
-              <th>Присутствие</th>
-              <th>Напитки</th>
-              <th>Контакт</th>
-              <th>Дата</th>
-              <th></th>
-            </tr>
+        <tr>
+          <th>Имя</th>
+          <th>Присутствие</th>
+          <th>Трансфер</th>
+          <th>Напитки</th>
+          <th>Пожелания</th>
+          <th></th>
+        </tr>
           </thead>
           <tbody id="guest-tbody"></tbody>
         </table>
@@ -317,7 +284,7 @@
   </div>
 
   <footer class="footer">
-    Александр & Дарья — 21 июня 2026
+    С нетерпением ждём встречи! 💛
   </footer>
 
   <script src="script.js"></script>
