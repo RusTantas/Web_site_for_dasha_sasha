@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
+/* Подключение шрифта Ekaterina Velikaya Two */
+/* Подключение шрифта Miami Nueva */
+@font-face {
+  font-family: 'Miami Nueva';
+  src: url('fonts/miamanueva.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* Подключение шрифта Nicolettascript */
+@font-face {
+  font-family: 'Nicolettascript';
+  src: url('fonts/Nicoletta-script.woff2') format('woff2'),
+       url('fonts/Nicoletta-script.woff') format('woff'),
+       url('fonts/Nicoletta-script.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --cream: #FAF8F5;
   --champagne: #F5E6D3;
@@ -28,12 +47,12 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('i.webp');
+  background-image: url('bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  opacity: 0.2;
+  opacity: 0.5;
   z-index: -1;
   pointer-events: none;
 }
@@ -74,7 +93,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 60px 24px;
-  background: linear-gradient(180deg, rgba(243, 237, 249, 0.7) 0%, rgba(245, 230, 211, 0.7) 100%);
+  background: transparent;  /* убираем градиент */
   position: relative;
 }
 
@@ -87,21 +106,44 @@ body {
 }
 
 .hero__names {
-  font-family: 'Great Vibes', cursive;
-  font-size: 96px;  /* было 72px, увеличили на 2 размера (примерно +24px) */
-  font-weight: 400;
+  font-family: 'Miami Nueva', 'Great Vibes', cursive;
+  font-size: 74px;
+  font-weight: normal;
   letter-spacing: 2px;
   color: var(--text-primary);
-  margin-bottom: 20px;
-  white-space: nowrap;
+  margin-bottom: 40px;  /* было 20px, увеличили до 40px */
+  
+  /* Вертикальное расположение */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15em;
+  
+  white-space: normal;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .hero__ampersand {
-  font-family: 'Great Vibes', cursive;
-  font-size: 76px;  /* было 56px, увеличили пропорционально */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -10px 0;
+  width: 100%;  /* добавляем ширину 100% */
+  text-align: center;  /* центрируем текст */
+}
+
+.hero__ampersand-symbol {
+  font-family: 'Nicolettascript', cursive;
+  font-size: 180px;
+  line-height: 1;
   font-weight: 400;
-  color: var(--lavender-text);
+  color: #8f8f8f;
+  opacity: 0.7;
   display: inline-block;
+  margin: 0 auto;  /* центрирование */
 }
 
 .hero__subtitle {
@@ -164,12 +206,12 @@ body {
 /* СЕКЦИИ */
 .section {
   padding: 80px 0;
-  background-color: rgba(250, 248, 245, 0.88);
+  background-color: transparent;  /* был rgba(...) - убираем */
   position: relative;
 }
 
 .section--alt {
-  background-color: rgba(255, 255, 255, 0.88);
+  background-color: transparent;  /* был rgba(...) - убираем */
 }
 
 .section__title {
@@ -214,7 +256,7 @@ body {
 
 /* БЛОК 3 - ЛОКАЦИЯ */
 .venue-card {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.92);
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -398,7 +440,7 @@ body {
 }
 
 .form-card {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.92);
   border: var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -1048,4 +1090,47 @@ body {
   line-height: 1.5;
   max-width: 700px;
   margin: 0 auto;
+}
+
+/* Карточка тайминга */
+.timeline-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Амперсанд в стиле «Nicolettascript» как на том сайте */
+.hero__ampersand {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -10px 0;
+}
+
+/* .hero__ampersand-symbol {
+  font-family: 'Nicolettascript', cursive;
+  font-size: 180px;
+  line-height: 1;
+  font-weight: 400;
+  color: #8f8f8f;
+  opacity: 0.7;  /* было 0.38, теперь 0.7 - менее прозрачный */
+  display: inline-block;
+} */
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+  .hero__ampersand-symbol {
+    font-size: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__ampersand-symbol {
+    font-size: 90px;
+  }
 }
