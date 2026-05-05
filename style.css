@@ -88,32 +88,32 @@ body {
 
 .hero__names {
   font-family: 'Great Vibes', cursive;
-  font-size: 72px;
+  font-size: 96px;  /* было 72px, увеличили на 2 размера (примерно +24px) */
   font-weight: 400;
   letter-spacing: 2px;
   color: var(--text-primary);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   white-space: nowrap;
 }
 
 .hero__ampersand {
   font-family: 'Great Vibes', cursive;
-  font-size: 56px;
+  font-size: 76px;  /* было 56px, увеличили пропорционально */
   font-weight: 400;
   color: var(--lavender-text);
   display: inline-block;
 }
 
 .hero__subtitle {
-  font-size: 15px;
+  font-size: 19px;  /* было 15px, увеличили на 2 размера (+4px) */
   font-weight: 300;
   color: var(--text-secondary);
-  letter-spacing: 1px;
-  margin-bottom: 16px;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
 }
 
 .hero__date {
-  font-size: 18px;
+  font-size: 22px;  /* было 18px, увеличили на 2 размера (+4px) */
   font-weight: 400;
   color: var(--text-secondary);
   letter-spacing: 3px;
@@ -345,21 +345,25 @@ body {
   font-style: italic;
 }
 
-/* БЛОК 6 - ДРЕСС-КОД */
+/* Блок 6 - Дресс-код (в стиле блока 2) */
 .dress-code {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 0;
   text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, var(--cream) 0%, var(--lavender-soft) 100%);
-  border-radius: var(--radius);
 }
 
 .dress-code__text {
-  font-size: 18px;
-  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+  font-style: normal;
   color: var(--text-primary);
+  letter-spacing: 0.5px;
+  line-height: 1.5;
 }
 
-/* Блок 7 - Цветочный фонд (без подложки) */
+/* Блок 7 - Цветочный фонд */
 .flower-fund {
   max-width: 700px;
   margin: 0 auto;
@@ -369,11 +373,12 @@ body {
 
 .flower-fund__text {
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: 21px;
   font-weight: 300;
-  color: var(--text-secondary);
+  font-style: normal;
+  color: var(--text-primary);
   letter-spacing: 0.5px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* БЛОК 8 - ФОРМА RSVP */
@@ -908,24 +913,21 @@ body {
 /* АДАПТИВ */
 @media (max-width: 768px) {
   .hero__names {
-    font-size: 48px;
+    font-size: 64px;
     white-space: normal;
   }
   
   .hero__ampersand {
-    font-size: 38px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero__names {
-    font-size: 36px;
+    font-size: 50px;
   }
   
-  .hero__ampersand {
-    font-size: 28px;
+  .hero__subtitle {
+    font-size: 16px;
   }
-}
+  
+  .hero__date {
+    font-size: 18px;
+  }
   
   .section {
     padding: 60px 0;
@@ -985,15 +987,19 @@ body {
 
 @media (max-width: 480px) {
   .hero__names {
-    font-size: 36px;
+    font-size: 44px;
   }
   
   .hero__ampersand {
-    font-size: 32px;
+    font-size: 36px;
+  }
+  
+  .hero__subtitle {
+    font-size: 13px;
   }
   
   .hero__date {
-    font-size: 14px;
+    font-size: 13px;
   }
   
   .timeline-card {
