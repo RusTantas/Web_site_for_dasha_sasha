@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Александр & Дарья — Свадьба 21.06.2026</title>
+  <title>Дарья & Александр — Свадьба 21.06.2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,11 +13,11 @@
   <section class="hero">
     <div class="hero__content">
       <h1 class="hero__names">
-        <span>Александр</span>
+        <span class="hero__name-daria">Дарья</span>
         <span class="hero__ampersand" data-text="&">
           <span class="hero__ampersand-symbol">&</span>
         </span>
-        <span>Дарья</span>
+        <span class="hero__name-alexander">Александр</span>
       </h1>
       <p class="hero__subtitle">приглашают вас на свою свадьбу</p>
       <p class="hero__date">21 июня 2026 года, воскресенье</p>
@@ -152,7 +152,7 @@
         <!-- Поле пожеланий (показывается только если выбран "не смогу") -->
         <div class="form-group" id="wishes-group" style="display: none;">
           <label class="form-label" for="guest-wishes">Пожелания молодожёнам</label>
-          <textarea class="form-input" id="guest-wishes" rows="4" placeholder="Напишите свои тёплые пожелания... Мы будем очень рады 🤍"></textarea>
+          <textarea class="form-input" id="guest-wishes" rows="4" placeholder="Напишите свои тёплые пожелания... Мы будем очень рады "></textarea>
         </div>
 
         <!-- Трансфер -->
@@ -260,7 +260,7 @@
         <h2 class="admin-panel__title">Панель управления</h2>
         <div>
           <button class="admin-btn admin-btn--secondary" id="admin-logout">Выйти</button>
-          <button class="admin-panel__close" id="admin-close">& times;</button>
+          <button class="admin-panel__close" id="admin-close">&times;</button>
         </div>
       </div>
 
@@ -306,7 +306,7 @@
   </div>
 
   <footer class="footer">
-    Александр & Дарья — 21 июня 2026
+    Дарья & Александр — 21 июня 2026
   </footer>
 
   <script src="script.js"></script>
