@@ -44,32 +44,30 @@
   --transition: all 0.3s ease;
 }
 
-/* ФОНОВОЕ ИЗОБРАЖЕНИЕ */
+/* ФОНОВОЕ ИЗОБРАЖЕНИЕ — ИСПРАВЛЕНО ДЛЯ IPHONE */
 body::before {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   background-image: url('bg.webp');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;  /* fixed заменён на scroll — исправляет проблему на iPhone */
   opacity: 0.5;
   z-index: -1;
   pointer-events: none;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Дополнительные стили для стабильности на iOS */
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
@@ -80,6 +78,13 @@ body {
   -webkit-font-smoothing: antialiased;
   position: relative;
   overflow-x: hidden;
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* КОНТЕЙНЕР */
