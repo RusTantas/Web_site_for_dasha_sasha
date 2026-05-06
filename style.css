@@ -901,8 +901,8 @@ body {
     font-size: 50px;
   }
   .hero__ampersand-symbol {
-    font-size: 80px;
-    letter-spacing: -2px;
+    font-size: 70px;
+    margin-left: -5px;  /* Сдвигаем влево */
   }
   .hero__subtitle {
     font-size: 16px;
