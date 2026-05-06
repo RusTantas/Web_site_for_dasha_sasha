@@ -901,7 +901,7 @@ body {
     font-size: 50px;
   }
   .hero__ampersand-symbol {
-    font-size: 100px;
+    font-size: 180px;
     margin-left: -15px;  /* Сдвигаем влево */
   }
   .hero__subtitle {
@@ -934,7 +934,7 @@ body {
 
 @media (max-width: 600px) {
   .hero__ampersand-symbol {
-    font-size: 100px;
+    font-size: 180px;
   }
 }
 
