@@ -902,7 +902,7 @@ body {
   }
   .hero__ampersand-symbol {
     font-size: 70px;
-    margin-left: -10px;  /* Сдвигаем влево */
+    margin-left: -15px;  /* Сдвигаем влево */
   }
   .hero__subtitle {
     font-size: 16px;
