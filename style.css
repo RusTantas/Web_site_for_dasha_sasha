@@ -115,24 +115,8 @@ body {
   align-items: center;
 }
 
-.hero__names {
-  font-family: 'Ekaterina Velikaya Two', 'Great Vibes', cursive;
-  font-weight: normal;
-  letter-spacing: 2px;
-  color: var(--text-primary);
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.15em;
-  white-space: normal;
-  line-height: 1.2;
-  text-align: center;
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: visible;
-  padding: 0 10px;
+  .hero__names {
+    padding: 0 10px;
 }
 
 .hero__name-daria {
@@ -939,25 +923,25 @@ body {
 
 @media (max-width: 480px) {
   .hero__name-daria {
-    font-size: 44px;
+    font-size: 60px;
   }
   .hero__name-alexander {
-    font-size: 38px;
-    margin-top: 10px;
+    font-size: 46px;
+    margin-top: 14px;
   }
   .hero__ampersand-symbol {
-    font-size: 48px;
+    font-size: 70px;
     padding-left: 6px;
   }
   .hero__names {
-    gap: 0.1em;
+    gap: 0.15em;
   }
   .hero__subtitle {
-    font-size: 14px;
-    margin-top: 40px;
+    font-size: 15px;
+    margin-top: 50px;
   }
   .hero__date {
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 3px;
   }
   .timeline-item__time {
@@ -980,27 +964,28 @@ body {
 
 @media (max-width: 400px) {
   .hero__name-daria {
-    font-size: 36px;
+    font-size: 52px;
   }
   .hero__name-alexander {
-    font-size: 30px;
-    margin-top: 6px;
+    font-size: 40px;
+    margin-top: 12px;
   }
   .hero__ampersand-symbol {
-    font-size: 42px;
+    font-size: 60px;
     padding-left: 6px;
   }
 }
 
 @media (max-width: 360px) {
   .hero__name-daria {
-    font-size: 30px;
+    font-size: 46px;
   }
   .hero__name-alexander {
-    font-size: 26px;
+    font-size: 36px;
+    margin-top: 10px;
   }
   .hero__ampersand-symbol {
-    font-size: 36px;
+    font-size: 52px;
     padding-left: 6px;
   }
 }
