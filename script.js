@@ -12,7 +12,11 @@
   }
 
   function saveGuests(guests) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(guests));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(guests));
+    } catch (e) {
+      console.warn('Не удалось сохранить данные:', e);
+    }
   }
 
   function generateId() {
@@ -53,19 +57,6 @@
     setInterval(update, 1000);
   }
 
-  // Плавная прокрутка при клике на стрелку
-  function initScrollHint() {
-    const scrollHint = document.getElementById('scrollHint');
-    if (!scrollHint) return;
-    
-    scrollHint.addEventListener('click', function() {
-      const nextSection = document.querySelector('.section');
-      if (nextSection) {
-        nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  }
-
   // Форма RSVP
   function initForm() {
     const form = document.getElementById('guest-form');
@@ -89,8 +80,12 @@
       });
     }
 
+    let submitting = false;
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (submitting) return;
+      submitting = true;
 
       const fullname = document.getElementById('guest-fullname').value.trim();
       const persons = parseInt(document.getElementById('guest-persons').value, 10) || 1;
@@ -105,17 +100,19 @@
 
       if (!fullname) {
         showMessage('Пожалуйста, укажите ваше имя', 'error');
+        submitting = false;
         return;
       }
 
       if (!attendance) {
         showMessage('Пожалуйста, укажите, сможете ли вы присутствовать', 'error');
+        submitting = false;
         return;
       }
 
-      // Если гость не может приехать, пожелания становятся обязательными
       if (attendance === 'no' && !wishes) {
         showMessage('Пожалуйста, напишите пожелания молодожёнам 🤍', 'error');
+        submitting = false;
         return;
       }
 
@@ -141,6 +138,7 @@
       }
       form.reset();
       if (wishesGroup) wishesGroup.style.display = 'none';
+      submitting = false;
     });
 
     function showMessage(text, type) {
@@ -360,6 +358,5 @@
     initCountdown();
     initForm();
     initAdmin();
-    initScrollHint();
   });
 })();

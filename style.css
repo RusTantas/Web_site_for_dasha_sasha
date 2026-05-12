@@ -175,7 +175,7 @@ body {
   margin: 0;
   text-align: center;
   transform: scale(1);
-  letter-spacing: -5px;  /* Немного уменьшаем отступы вокруг символа */
+  letter-spacing: 0;
 }
 
 .hero__subtitle {
@@ -894,15 +894,14 @@ body {
   .hero__name-daria {
     font-size: 60px;
   }
-    .hero__ampersand {
-    padding: 0 10px;
+  .hero__ampersand {
+    padding: 0 20px;
   }
   .hero__name-alexander {
     font-size: 50px;
   }
   .hero__ampersand-symbol {
     font-size: 180px;
-    margin-left: 15px;  /* Сдвигаем влево */
   }
   .hero__subtitle {
     font-size: 16px;
