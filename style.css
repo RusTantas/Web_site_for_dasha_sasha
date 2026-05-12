@@ -154,14 +154,12 @@ body {
 
 .hero__ampersand {
   position: relative;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   margin: -10px 0;
-  width: 100%;
   text-align: center;
-  overflow-x: visible;
-  padding: 0 20px;  /* Увеличил отступы */
+  padding: 0 20px;
 }
 
 .hero__ampersand-symbol {
@@ -948,6 +946,7 @@ body {
   }
   .hero__ampersand-symbol {
     font-size: 48px;
+    padding-left: 6px;
   }
   .hero__names {
     gap: 0.1em;
@@ -986,6 +985,7 @@ body {
   }
   .hero__ampersand-symbol {
     font-size: 42px;
+    padding-left: 6px;
   }
 }
 
@@ -998,5 +998,6 @@ body {
   }
   .hero__ampersand-symbol {
     font-size: 36px;
+    padding-left: 6px;
   }
 }
