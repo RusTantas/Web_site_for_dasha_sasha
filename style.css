@@ -87,6 +87,42 @@ body {
   box-sizing: border-box;
 }
 
+/* ДЕКОРАТИВНЫЙ УГОЛОК */
+.fon-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: 360px;
+  overflow: hidden;
+  background: url('fon_top_pk.png') no-repeat;
+  background-size: 560px;
+  background-position: calc(100% + 60px) -60px;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%), linear-gradient(to right, transparent 10%, black 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%), linear-gradient(to right, transparent 10%, black 100%);
+  mask-composite: intersect;
+}
+
+@media (max-width: 600px) {
+  .fon-top {
+    width: 200px;
+    height: 200px;
+    background-size: 320px;
+    background-position: calc(100% + 40px) -40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .fon-top {
+    width: 200px;
+    height: 200px;
+    background-size: 360px;
+  }
+}
+
 /* КОНТЕЙНЕР */
 .container {
   max-width: 800px;
