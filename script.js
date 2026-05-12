@@ -23,6 +23,18 @@
     return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
   }
 
+  // Скролл по клику на "Подробнее"
+  function initScrollHint() {
+    const hint = document.getElementById('scrollHint');
+    if (!hint) return;
+    hint.addEventListener('click', function () {
+      const nextSection = document.querySelector('.section');
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
   // Таймер для блока Тайминг дня (до 21 июня 2026 15:30)
   function initCountdown() {
     const target = new Date('2026-06-21T15:30:00').getTime();
@@ -355,6 +367,7 @@
 
   // Запуск всего при загрузке страницы
   document.addEventListener('DOMContentLoaded', function () {
+    initScrollHint();
     initCountdown();
     initForm();
     initAdmin();

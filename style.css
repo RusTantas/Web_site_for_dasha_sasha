@@ -138,12 +138,13 @@ body {
 
 .hero__ampersand {
   position: relative;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   margin: -10px 0;
   text-align: center;
-  padding: 0 20px;
+  padding: 0;
+  width: 100%;
 }
 
 .hero__ampersand-symbol {
@@ -170,11 +171,12 @@ body {
 }
 
 .hero__date {
-  font-size: 24px;
+  font-family: 'Great Vibes', 'Ekaterina Velikaya Two', cursive;
+  font-size: 30px;
   font-weight: 400;
-  color: var(--text-secondary);
-  letter-spacing: 4px;
-  text-transform: uppercase;
+  color: #b2691d;
+  letter-spacing: 1px;
+  opacity: 0.85;
 }
 
 /* СТРЕЛКА ПРОКРУТКИ */
@@ -250,7 +252,7 @@ body {
   transform: translateX(-50%);
   width: 40px;
   height: 2px;
-  color: #b2691d;
+  background-color: #b2691d;
 }
 
 /* БЛОК 2 - ТЕКСТ ПРИГЛАШЕНИЯ */
@@ -642,11 +644,18 @@ body {
 
 .waiting-message {
   text-align: center;
-  margin-top: 48px;
-  padding: 24px;
-  font-size: 20px;
+  margin-top: 60px;
+  padding: 32px 24px;
+}
+
+.waiting-message p {
+  font-family: 'Great Vibes', 'Ekaterina Velikaya Two', cursive;
+  font-size: 28px;
   font-weight: 400;
-  color: #8f8f8f;
+  color: #b2691d;
+  letter-spacing: 1px;
+  opacity: 0.85;
+  line-height: 1.4;
 }
 
 /* ПОЛЕ ПОЖЕЛАНИЙ */
@@ -890,7 +899,7 @@ body {
     margin-top: 60px;
   }
   .hero__date {
-    font-size: 18px;
+    font-size: 24px;
   }
   .section {
     padding: 60px 0;
@@ -941,8 +950,8 @@ body {
     margin-top: 50px;
   }
   .hero__date {
-    font-size: 15px;
-    letter-spacing: 3px;
+    font-size: 22px;
+    letter-spacing: 1px;
   }
   .timeline-item__time {
     font-size: 16px;
