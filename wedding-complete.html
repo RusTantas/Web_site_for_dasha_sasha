@@ -12,10 +12,6 @@
   --champagne: #F5E6D3;
   --sandy: #E8D5B7;
   --sandy-dark: #C9B896;
-  --lavender: #E8D5F5;
-  --lavender-soft: #F3EDF9;
-  --lavender-border: #D4BFE5;
-  --lavender-text: #7B5FA8;
   --text-primary: #3D3D3D;
   --text-secondary: #7A7A7A;
   --text-light: #999999;
@@ -106,7 +102,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 60px 24px;
-  background: linear-gradient(180deg, var(--lavender-soft) 0%, var(--champagne) 100%);
+  background: linear-gradient(180deg, var(--champagne) 0%, var(--champagne) 100%);
 }
 
 .hero__names {
@@ -121,7 +117,7 @@ body {
 .hero__ampersand {
   font-size: 28px;
   font-weight: 300;
-  color: var(--lavender-text);
+  color: #b2691d;
   margin: 0 12px;
 }
 
@@ -205,7 +201,7 @@ body {
   font-size: 28px;
   font-weight: 300;
   text-align: center;
-  color: var(--lavender-text);
+  color: #b2691d;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -221,7 +217,7 @@ body {
   transform: translateX(-50%);
   width: 40px;
   height: 2px;
-  background-color: var(--lavender-border);
+  background-color: var(--sandy-dark);
 }
 
 .section__subtitle {
@@ -448,9 +444,9 @@ textarea.form-input {
 }
 
 .drink-option input[type="radio"]:checked + .drink-option__label {
-  background: var(--lavender-soft);
-  border-color: var(--lavender-border);
-  color: var(--lavender-text);
+  background: var(--champagne);
+  border-color: var(--sandy-dark);
+  color: #b2691d;
   font-weight: 500;
 }
 
@@ -467,7 +463,7 @@ textarea.form-input {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   color: var(--white);
-  background: var(--lavender-text);
+  background: #b2691d;
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
@@ -477,7 +473,7 @@ textarea.form-input {
 }
 
 .btn:hover {
-  background: #6B46C1;
+  background: #8f5a16;
   box-shadow: var(--shadow-hover);
 }
 
@@ -565,7 +561,7 @@ textarea.form-input {
   align-items: center;
   margin-bottom: 32px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--lavender-border);
+  border-bottom: 1px solid var(--sandy-dark);
 }
 
 .admin-panel__title {
@@ -650,7 +646,7 @@ textarea.form-input {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   color: var(--white);
-  background: var(--lavender-text);
+  background: #b2691d;
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
@@ -661,7 +657,7 @@ textarea.form-input {
 }
 
 .admin-btn:hover {
-  background: #6B46C1;
+  background: #8f5a16;
 }
 
 .admin-btn--danger {
@@ -693,8 +689,8 @@ textarea.form-input {
 .stat-card {
   flex:1;
   min-width: 120px;
-  background: var(--lavender-soft);
-  border: 1px solid var(--lavender-border);
+  background: var(--champagne);
+  border: 1px solid var(--sandy-dark);
   border-radius: var(--radius);
   padding: 20px;
   text-align: center;
@@ -730,7 +726,7 @@ textarea.form-input {
 }
 
 .guest-table thead {
-  background: var(--lavender-soft);
+  background: var(--champagne);
 }
 
 .guest-table th {
@@ -789,9 +785,9 @@ textarea.form-input {
   display: inline-block;
   padding: 4px 10px;
   font-size: 12px;
-  color: var(--lavender-text);
-  background: var(--lavender-soft);
-  border: 1px solid var(--lavender-border);
+  color: #b2691d;
+  background: var(--champagne);
+  border: 1px solid var(--sandy-dark);
   border-radius: 8px;
   white-space: nowrap;
 }
@@ -901,17 +897,17 @@ textarea.form-input {
 
 [contenteditable="true"] {
   outline: none;
-  border-bottom: 1px dashed var(--lavender-border);
+  border-bottom: 1px dashed var(--sandy-dark);
   transition: border-color 0.2s ease;
 }
 
 [contenteditable="true"]:hover {
-  border-bottom-color: var(--lavender-text);
+  border-bottom-color: #b2691d;
 }
 
 [contenteditable="true"]:focus {
-  border-bottom-color: var(--lavender-text);
-  background: rgba(123, 95, 168, 0.05);
+  border-bottom-color: #b2691d;
+  background: rgba(178, 105, 29, 0.05);
 }
 
   </style>
@@ -953,7 +949,7 @@ textarea.form-input {
           <div class="venue-card__detail">
             <span class="venue-card__detail-label">Ссылка на навигацию</span>
             <span class="venue-card__detail-value" contenteditable="true" spellcheck="false">
-              <a href="https://yandex.ru/navi/org/mayak/28701397180?si=4373ty1h6ku1prffagqdzzdrmr" target="_blank" style="color: var(--lavender-text); text-decoration: none;">Открыть в Яндекс.Картах</a>
+              <a href="https://yandex.ru/navi/org/mayak/28701397180?si=4373ty1h6ku1prffagqdzzdrmr" target="_blank" class="venue-card__link">Открыть в Яндекс.Картах</a>
             </span>
           </div>
         </div>
