@@ -91,18 +91,18 @@ body {
 .fon-top {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 360px;
   height: 360px;
   overflow: hidden;
   background: url('fon_top_pk.png') no-repeat;
   background-size: 560px;
-  background-position: calc(100% + 60px) -60px;
+  background-position: -60px -60px;
   pointer-events: none;
   z-index: 0;
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%), linear-gradient(to right, transparent 10%, black 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%), linear-gradient(to left, transparent 10%, black 100%);
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%), linear-gradient(to right, transparent 10%, black 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%), linear-gradient(to left, transparent 10%, black 100%);
   mask-composite: intersect;
 }
 
