@@ -137,7 +137,7 @@ body {
 
 .hero__name-daria {
   font-family: 'Ekaterina Velikaya Two', 'Great Vibes', cursive;
-  font-size: 90px;
+  font-size: 100px;
   font-weight: normal;
   color: var(--text-primary);
   display: inline-block;
@@ -145,11 +145,11 @@ body {
 
 .hero__name-alexander {
   font-family: 'Ekaterina Velikaya Two', 'Great Vibes', cursive;
-  font-size: 70px;
+  font-size: 85px;
   font-weight: normal;
   color: var(--text-primary);
   display: inline-block;
-  margin-top: 20px;  /* Добавляем отступ сверху */
+  margin-top: 20px;
 }
 
 .hero__ampersand {
@@ -177,19 +177,19 @@ body {
 }
 
 .hero__subtitle {
-  font-size: 19px;
+  font-size: 21px;
   font-weight: 300;
   color: var(--text-secondary);
-  letter-spacing: 1.5px;
-  margin-bottom: 20px;
-  margin-top: 50px;
+  letter-spacing: 2.5px;
+  margin-bottom: 24px;
+  margin-top: 80px;
 }
 
 .hero__date {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 400;
   color: var(--text-secondary);
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-transform: uppercase;
 }
 
@@ -890,19 +890,20 @@ body {
 /* АДАПТИВ */
 @media (max-width: 768px) {
   .hero__name-daria {
-    font-size: 60px;
+    font-size: 68px;
   }
   .hero__ampersand {
     padding: 0 20px;
   }
   .hero__name-alexander {
-    font-size: 50px;
+    font-size: 56px;
   }
   .hero__ampersand-symbol {
     font-size: 180px;
   }
   .hero__subtitle {
-    font-size: 16px;
+    font-size: 17px;
+    margin-top: 60px;
   }
   .hero__date {
     font-size: 18px;
@@ -938,10 +939,10 @@ body {
 
 @media (max-width: 480px) {
   .hero__name-daria {
-    font-size: 40px;
+    font-size: 44px;
   }
   .hero__name-alexander {
-    font-size: 34px;
+    font-size: 38px;
     margin-top: 10px;
   }
   .hero__ampersand-symbol {
@@ -952,10 +953,12 @@ body {
     gap: 0.1em;
   }
   .hero__subtitle {
-    font-size: 13px;
+    font-size: 14px;
+    margin-top: 40px;
   }
   .hero__date {
-    font-size: 13px;
+    font-size: 14px;
+    letter-spacing: 3px;
   }
   .timeline-item__time {
     font-size: 16px;
